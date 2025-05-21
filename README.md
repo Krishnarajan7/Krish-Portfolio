@@ -71,14 +71,12 @@ To preview the production build locally:
 npm run preview
 
 
-🧑‍🚀 Author – KrishnaRajan
-📧 krishh.v777@gmail.com
+## 👨‍🚀 Author – Krishna Rajan
 
-💼 LinkedIn - https://www.linkedin.com/in/krishnarajan007
-
-💻 GitHub - https://github.com/Krishnrajan7
-
-🧠 LeetCode - https://leetcode.com/u/KrishCodes7
+📧 [krishh.v777@gmail.com](mailto:krishh.v777@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/krishnarajan007)  
+🐙 [GitHub](https://github.com/Krishnarajan7)  
+🧠 [LeetCode](https://leetcode.com/u/KrishCodes7/)
 
 📜 License
 This project is licensed under the MIT License.
