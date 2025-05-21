@@ -73,7 +73,7 @@ To preview the production build locally:
 npm run preview
 
 
-## 👨‍🚀 Author – Krishna Rajan
+## 👨‍🚀 Author – KrishnaRajan
 
 📧 [krishh.v777@gmail.com](mailto:krishh.v777@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/krishnarajan007)  
