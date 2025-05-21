@@ -81,7 +81,8 @@ npm run preview
 🧠 [LeetCode](https://leetcode.com/u/KrishCodes7/)
 
 📜 License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
+
 
 “Exploring the code galaxy, one commit at a time.” – KrishnaRajan
 
