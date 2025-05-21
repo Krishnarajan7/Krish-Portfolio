@@ -1,4 +1,4 @@
-# 🌌 Krishna Rajan – Developer Portfolio
+# 🌌 KrishnaRajan – Developer Portfolio
 
 Welcome to my personal **space-themed developer portfolio** built with **React.js**, **Tailwind CSS**, and **JavaScript**.  
 This site showcases who I am as a developer — my work, my journey, and my passion for creating user-focused, elegant web experiences.
@@ -68,17 +68,17 @@ App will be available at http://localhost:5173/ (or your configured port).
 📦 Build for Production
 npm run build
 To preview the production build locally:
-
-
 npm run preview
+
+
 🧑‍🚀 Author – KrishnaRajan
 📧 krishh.v777@gmail.com
 
-💼 LinkedIn
+💼 LinkedIn - https://www.linkedin.com/in/krishnarajan007
 
-💻 GitHub
+💻 GitHub - https://github.com/Krishnrajan7
 
-🧠 LeetCode
+🧠 LeetCode - https://leetcode.com/u/KrishCodes7
 
 📜 License
 This project is licensed under the MIT License.
