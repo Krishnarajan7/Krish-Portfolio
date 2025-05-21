@@ -54,6 +54,8 @@ Krishna-portfolio/
 ├── README.md                  # Project overview and guide
 └── .gitignore                 # Git ignored files
 
+```
+
 1. Clone the Repository
 git clone https://github.com/Krishnarajan7/Krishna-portfolio.git
 cd Krishna-portfolio
