@@ -1,4 +1,4 @@
-# 🌌 KrishnaRajan – Developer Portfolio
+# 🌌 Krishnarajan – Developer Portfolio
 
 Welcome to my personal **space-themed developer portfolio** built with **React.js**, **Tailwind CSS**, and **JavaScript**.  
 This site showcases who I am as a developer — my work, my journey, and my passion for creating user-focused, elegant web experiences.
@@ -36,7 +36,7 @@ Visit: [https://krish-codes-universe.vercel.app](https://krish-codes-universe.ve
 ## 📁 Folder Structure
 
 ```bash
-Krishna-portfolio/
+Krish-portfolio/
 ├── public/                     # Static assets (favicon, index.html)
 │
 ├── src/
@@ -84,10 +84,5 @@ npm run preview
 This project is licensed under the [MIT License](LICENSE).
 
 
-“Exploring the code galaxy, one commit at a time.” – KrishnaRajan
-
-se](LICENSE).
-
-
-“Exploring the code galaxy, one commit at a time.” – KrishnaRajan
+“Exploring the code galaxy, one commit at a time.” – Krishnarajan
 
