@@ -21,8 +21,8 @@ const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
-const SIDEBAR_WIDTH = "3rem"
-const ICONSIDEBAR_KEYBOARD_SHORTCUT = "b"
+const SIDEBAR_WIDTH_ICON = "3rem"
+const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
 const SidebarContext = React.createContext(null)
 
@@ -36,19 +36,22 @@ function useSidebar() {
 
 const SidebarProvider = React.forwardRef(
   (
-    defaultOpen = true,
-    open,
-    onOpenChange,
-    className,
-    style,
-    children,
-    ...props
-  }, ref) => {
+    {
+      defaultOpen = true,
+      open: openProp,
+      onOpenChange: setOpenProp,
+      className,
+      style,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const isMobile = useIsMobile()
     const [openMobile, setOpenMobile] = React.useState(false)
 
     const [_open, _setOpen] = React.useState(defaultOpen)
-    const open = openProp !== null || undefined ? openProp : _open
+    const open = openProp !== undefined && openProp !== null ? openProp : _open
     const setOpen = React.useCallback(
       (value) => {
         const openState = typeof value === "function" ? value(open) : value
@@ -57,7 +60,6 @@ const SidebarProvider = React.forwardRef(
         } else {
           _setOpen(openState)
         }
-
         document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`
       },
       [setOpenProp, open]
@@ -65,9 +67,11 @@ const SidebarProvider = React.forwardRef(
 
     const toggleSidebar = React.useCallback(
       () => {
-        return isMobile
-          ? setOpenMobile((open) => !open)
-          : setOpen((open) => !open)
+        if (isMobile) {
+          setOpenMobile((open) => !open)
+        } else {
+          setOpen((open) => !open)
+        }
       },
       [isMobile, setOpen, setOpenMobile]
     )
