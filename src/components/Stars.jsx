@@ -28,10 +28,10 @@ const Stars = ({ isDarkMode }) => {
       // Only draw stars in dark mode
       if (!isDarkMode) return;
       
-      // Further reduced density for better visual experience and performance on mobile
+      // Significantly reduced star density for cleaner look
       const starCount = isMobile 
-        ? Math.floor((canvas.width * canvas.height) / 18000) // Even fewer stars on mobile 
-        : Math.floor((canvas.width * canvas.height) / 10000);
+        ? Math.floor((canvas.width * canvas.height) / 35000) // Much fewer stars on mobile 
+        : Math.floor((canvas.width * canvas.height) / 25000); // Reduced desktop stars too
       
       // Create more intelligent buffer zones around UI elements
       const avoidAreas = [
@@ -88,17 +88,17 @@ const Stars = ({ isDarkMode }) => {
         const y = Math.random() * canvas.height;
         
         if (!isInAvoidArea(x, y)) {
-          // Use smaller stars on mobile for better performance and appearance
-          const radius = isMobile ? Math.random() * 0.7 : Math.random() * 1.2;
-          const opacity = Math.random() * 0.5 + 0.2;
+          // Use smaller stars for subtlety
+          const radius = isMobile ? Math.random() * 0.5 + 0.2 : Math.random() * 0.8 + 0.3;
+          const opacity = Math.random() * 0.4 + 0.1; // Reduced opacity for subtlety
           
-          // Enhanced twinkling effect with different frequencies
-          if (starsPlaced % 5 === 0) { 
+          // Reduced twinkling frequency for cleaner look
+          if (starsPlaced % 8 === 0) { 
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity * (0.5 + Math.sin(Date.now() * 0.0001 + starsPlaced) * 0.5)})`;
             ctx.fill();
-          } else if (starsPlaced % 7 === 0) {
+          } else if (starsPlaced % 12 === 0) {
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity * (0.6 + Math.cos(Date.now() * 0.00012 + starsPlaced) * 0.4)})`;
@@ -110,25 +110,25 @@ const Stars = ({ isDarkMode }) => {
             ctx.fill();
           }
           
-          // Add 'special' stars with a subtle glow - less frequent on mobile
-          if (!isMobile && starsPlaced % 50 === 0) {
+          // Reduce special glow stars frequency
+          if (!isMobile && starsPlaced % 80 === 0) {
             ctx.beginPath();
-            const glowRadius = radius * 4;
+            const glowRadius = radius * 3;
             const gradient = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
-            gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.8})`);
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.6})`);
             gradient.addColorStop(1, 'rgba(155, 135, 245, 0)');
             ctx.fillStyle = gradient;
             ctx.arc(x, y, glowRadius, 0, Math.PI * 2);
             ctx.fill();
           }
           
-          // Add rare large stars with special glow - disable on mobile
-          if (!isMobile && starsPlaced % 100 === 0) {
+          // Further reduce large special stars
+          if (!isMobile && starsPlaced % 150 === 0) {
             ctx.beginPath();
-            const specialGlowRadius = radius * 6;
+            const specialGlowRadius = radius * 4;
             const specialGradient = ctx.createRadialGradient(x, y, 0, x, y, specialGlowRadius);
-            specialGradient.addColorStop(0, `rgba(220, 220, 255, ${opacity * 0.9})`);
-            specialGradient.addColorStop(0.5, `rgba(180, 180, 255, ${opacity * 0.5})`);
+            specialGradient.addColorStop(0, `rgba(220, 220, 255, ${opacity * 0.7})`);
+            specialGradient.addColorStop(0.5, `rgba(180, 180, 255, ${opacity * 0.3})`);
             specialGradient.addColorStop(1, 'rgba(100, 100, 255, 0)');
             ctx.fillStyle = specialGradient;
             ctx.arc(x, y, specialGlowRadius, 0, Math.PI * 2);

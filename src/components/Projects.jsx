@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Github, ArrowUpRight, Star, Code, Trophy } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
+import SectionHeader from './common/SectionHeader';
 
 const PROJECTS = [
   {
@@ -158,11 +159,10 @@ const Projects = ({ isDarkMode }) => {
   return (
     <section id="projects" className="py-16 sm:py-20">
       <div className="space-container">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gradient">My Projects</h2>
-          <div className="mx-auto w-20 h-1 bg-gradient-to-r from-space-accent to-space-nebula rounded-full mb-6"></div>
-          <p className="text-white/60 max-w-2xl mx-auto">Explore the digital constellations I've created</p>
-        </div>
+        <SectionHeader 
+          title="My Projects" 
+          subtitle="Explore the digital constellations I've created" 
+        />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {PROJECTS.slice(0, visibleCount).map((project, idx) => (
