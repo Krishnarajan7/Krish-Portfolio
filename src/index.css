@@ -60,7 +60,7 @@ body.dark-mode {
 }
 
 body.light-mode {
-  @apply bg-[#F0F4F8] text-gray-800;
+  @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 text-gray-900;
 }
 
 /* Animation utilities */
@@ -90,7 +90,7 @@ body.light-mode {
   }
   
   body.light-mode .frosted-glass {
-    @apply bg-white/95 backdrop-blur-sm border border-gray-100 shadow-sm;
+    @apply bg-white/95 backdrop-blur-sm border border-indigo-100 shadow-lg;
   }
   
   .cosmic-card {
@@ -98,11 +98,15 @@ body.light-mode {
   }
 
   body.light-mode .cosmic-card {
-    @apply bg-white border border-blue-50 shadow-md;
+    @apply bg-white/90 backdrop-blur-sm border border-indigo-200 shadow-lg hover:shadow-xl;
   }
 
   .text-gradient {
     @apply bg-gradient-to-r from-space-accent to-space-nebula bg-clip-text text-transparent;
+  }
+  
+  body.light-mode .text-gradient {
+    @apply bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent;
   }
   
   .text-gradient-purple {
@@ -111,6 +115,10 @@ body.light-mode {
   
   .active-nav-link {
     @apply relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-space-accent;
+  }
+
+  body.light-mode .active-nav-link {
+    @apply after:bg-indigo-600;
   }
 
   .section-stars {
@@ -123,6 +131,10 @@ body.light-mode {
     transition: width 1.5s ease-in-out;
   }
 
+  body.light-mode .skill-bar {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-500;
+  }
+
   .skill-bar::after {
     content: '';
     @apply absolute inset-0 bg-white/20;
@@ -130,7 +142,7 @@ body.light-mode {
   }
 
   body.light-mode .skill-bar::after {
-    @apply bg-space-accent/10;
+    @apply bg-white/30;
   }
   
   /* Mobile optimizations */
@@ -282,19 +294,19 @@ body.light-mode {
   }
 
   body.light-mode .bg-space-darker {
-    @apply bg-[#F0F4F8];
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50;
   }
 
   body.light-mode .bg-space-dark {
-    @apply bg-white;
+    @apply bg-white/90;
   }
 
   body.light-mode .bg-space-light {
-    @apply bg-blue-50;
+    @apply bg-indigo-100;
   }
 
   body.light-mode .text-white {
-    @apply text-gray-800;
+    @apply text-gray-900;
   }
 
   body.light-mode .text-white\/70 {
@@ -303,6 +315,26 @@ body.light-mode {
 
   body.light-mode .text-white\/60 {
     @apply text-gray-600;
+  }
+
+  body.light-mode .text-white\/80 {
+    @apply text-gray-800;
+  }
+
+  body.light-mode .text-space-accent {
+    @apply text-indigo-600;
+  }
+
+  body.light-mode .bg-space-accent {
+    @apply bg-indigo-600;
+  }
+
+  body.light-mode .text-space-nebula {
+    @apply text-purple-600;
+  }
+
+  body.light-mode .bg-space-nebula {
+    @apply bg-purple-600;
   }
 }
 
@@ -325,13 +357,13 @@ body.light-mode {
 }
 
 body.light-mode ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f8fafc;
 }
 
 body.light-mode ::-webkit-scrollbar-thumb {
-  background: #9b87f5;
+  background: #6366f1;
 }
 
 body.light-mode ::-webkit-scrollbar-thumb:hover {
-  background: #7E69AB;
+  background: #4338ca;
 }

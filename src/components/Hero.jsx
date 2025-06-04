@@ -66,8 +66,8 @@ const Hero = ({ isDarkMode }) => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-            <span className="text-gradient">Hi, I'm Krishna Rajan</span>{" "}
-            <span className="inline-block animate-float">👨‍🚀</span>
+            <span className="text-gradient">Hi, I'm Krishnarajan</span>{" "}
+            {/* <span className="inline-block animate-float">👨‍🚀</span> */}
           </h1>
 
           <h2 className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 text-white/70">
