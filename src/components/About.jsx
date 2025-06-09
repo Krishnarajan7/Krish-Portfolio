@@ -85,13 +85,13 @@ const About = ({ isDarkMode }) => {
             <div className="cosmic-card p-1.5 relative">
               <div className="relative w-full aspect-square overflow-hidden rounded-lg">
                 <img
-                  src="/img/profile.jpg"
+                  src="/assets/images/Krish.jpg"
                   alt="Krishnarajan"
                   className="object-cover w-full h-full"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
-                      "https://placehold.co/400x400/1A1F2C/FFFFFF?text=Krishna+Rajan";
+                      "/assets/images/Krish.jpg";
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -138,15 +138,11 @@ const About = ({ isDarkMode }) => {
 
           <div className="space-y-6" ref={contentRef} style={{ opacity: 0 }}>
             <h3 className="text-2xl font-bold text-white">
-              Building impactful web experiences one galaxy at a time
+              Turning ideas into interactive web experiences.
             </h3>
 
             <p className="text-white/70">
-              I'm a passionate Full Stack Developer with 5+ years of experience
-              crafting elegant solutions to complex problems. My journey in tech
-              began with a deep curiosity about how websites work, which evolved
-              into a professional career building applications that make a
-              difference.
+              I'm KrishnaRajan, a dedicated Full Stack Developer who loves building meaningful applications for the web and beyond. I thrive at the intersection of logic and creativity — blending front-end design with back-end performance to deliver fast, intuitive, and scalable solutions.
             </p>
 
             <p className="text-white/70">
@@ -219,12 +215,12 @@ const About = ({ isDarkMode }) => {
                 <div className="relative pl-6 pb-8">
                   <div className="absolute top-0 left-0 w-3 h-3 rounded-full bg-space-accent -ml-1.5"></div>
                   <h5 className="text-white font-medium">
-                    Master of Computer Science
+                    Bachelor of Engineering
                   </h5>
-                  <p className="text-space-accent">Stanford University</p>
-                  <p className="text-white/50 text-sm">2016 - 2018</p>
+                  <p className="text-space-accent">E.G.S. Pillay Engineering College</p>
+                  <p className="text-white/50 text-sm">2022 - 2026</p>
                   <p className="text-white/70 mt-2">
-                    Specialized in artificial intelligence and web technologies
+                    Specialized in Computer Science and web Engineering
                     with a focus on building scalable applications.
                   </p>
                 </div>
@@ -232,13 +228,12 @@ const About = ({ isDarkMode }) => {
                 <div className="relative pl-6">
                   <div className="absolute top-0 left-0 w-3 h-3 rounded-full bg-space-accent -ml-1.5"></div>
                   <h5 className="text-white font-medium">
-                    Bachelor of Engineering
+                    12th Grade
                   </h5>
-                  <p className="text-space-accent">MIT</p>
-                  <p className="text-white/50 text-sm">2012 - 2016</p>
+                  <p className="text-space-accent">The Merit Higher Secondary School, Thiruvarur</p>
+                  <p className="text-white/50 text-sm">2020 - 2022</p>
                   <p className="text-white/70 mt-2">
-                    Graduated with honors in Computer Science, with minors in
-                    Mathematics and Design Thinking.
+                    Completed with distinction, achieving 81%.
                   </p>
                 </div>
               </div>

@@ -157,17 +157,12 @@ const Hero = ({ isDarkMode }) => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e3e3e3"
               >
-                <path d="m7 8 10 8"></path>
-                <path d="m7 16 10-8"></path>
+                <path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z" />
               </svg>
             </a>
           </div>
@@ -181,20 +176,19 @@ const Hero = ({ isDarkMode }) => {
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72">
             <div className="absolute inset-0 bg-gradient-to-tr from-space-accent to-space-nebula rounded-full opacity-10 blur-3xl"></div>
 
-            {/* Add some floating particles around the astronaut */}
             {isDarkMode && (
               <>
                 <div
                   className="absolute w-2 h-2 rounded-full bg-space-accent/50 animate-twinkle-slow"
-                  style={{ top: "20%", left: "10%" }}
+                  style={{ top: "0%", left: "10%" }}
                 ></div>
                 <div
                   className="absolute w-3 h-3 rounded-full bg-space-nebula/50 animate-twinkle"
-                  style={{ top: "70%", left: "15%" }}
+                  style={{ top: "90%", left: "15%" }}
                 ></div>
                 <div
                   className="absolute w-1.5 h-1.5 rounded-full bg-white/50 animate-twinkle-fast"
-                  style={{ top: "40%", left: "80%" }}
+                  style={{ top: "40%", left: "94%" }}
                 ></div>
                 <div
                   className="absolute w-2.5 h-2.5 rounded-full bg-space-accent/70 animate-twinkle-slow"
@@ -204,13 +198,12 @@ const Hero = ({ isDarkMode }) => {
             )}
 
             <img
-              src="/img/astronaut.png"
-              alt="Astronaut illustration"
-              className="w-full h-full object-contain animate-float"
+              src="/assets/images/Krish.jpg"
+              alt="Profile Pic"
+              className="w-64 h-64 rounded-full object-cover shadow-lg border-4 border-purple-500 animate-float"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src =
-                  "https://placehold.co/300x300/1A1F2C/FFFFFF?text=👨‍🚀";
+                e.target.src = "/assets/images/Krish.jpg ";
               }}
             />
           </div>

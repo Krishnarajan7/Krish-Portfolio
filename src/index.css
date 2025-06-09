@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -37,6 +38,7 @@
   
   /* Add overflow-x-hidden to html and body to prevent horizontal scrolling */
   html, body {
+    
     overflow-x: hidden;
     width: 100%;
     position: relative;
