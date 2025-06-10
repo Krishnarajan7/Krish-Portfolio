@@ -208,19 +208,12 @@ const Skills = ({ isDarkMode }) => {
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {[
                 "Next.js",
-                "Redux",
                 "SASS",
-                "Vue.js",
                 "Express",
-                "MongoDB",
                 "Firebase",
-                "Jest",
-                "CI/CD",
                 "Responsive Design",
                 "Accessibility",
                 "Performance Optimization",
-                "PWA",
-                "Agile/Scrum",
               ].map((tech, idx) => (
                 <span
                   key={idx}

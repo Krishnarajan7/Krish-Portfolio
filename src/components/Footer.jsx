@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="text-white/70 text-center md:text-left">
-              © {new Date().getFullYear()} Krishna Rajan – Exploring Code & Cosmos 🌌
+              © {new Date().getFullYear()} Krishnarajan – Exploring Code & Cosmos 🌌
             </p>
           </div>
           

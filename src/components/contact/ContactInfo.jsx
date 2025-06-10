@@ -12,13 +12,13 @@ const ContactInfo = ({ isDarkMode }) => {
     {
       icon: <Phone className="h-5 w-5 text-space-accent" />,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "+91 9345280327",
+      link: "tel:+9345280327"
     },
     {
       icon: <MapPin className="h-5 w-5 text-space-accent" />,
       label: "Location",
-      value: "New York, NY",
+      value: "Chennai, In",
       link: null
     },
     {

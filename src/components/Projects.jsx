@@ -5,72 +5,51 @@ import SectionHeader from './common/SectionHeader';
 
 const PROJECTS = [
   {
-    title: "Cosmic Commerce",
-    description: "A full-stack e-commerce platform with React frontend and Node.js backend. Features include user authentication, product listing, cart functionality, and payment processing.",
+    title: "Vedha Clothing",
+    description: "Vedha Clothing is a modern e-commerce platform crafted to showcase timeless Indian fashion. Built using responsive web technologies like HTML5, CSS3, JavaScript.",
     image: "/img/project1.jpg",
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-    github: "https://github.com/krishnarajan7/cosmic-commerce",
-    demo: "https://cosmic-commerce.demo.com",
+    tech: ["React", "JavaScript" ,"Tailwind CSS", "MongoDB"],
+    github: "https://github.com/Krishnarajan7/Client-Website-1",
+    demo: "https://vedhaclothing.in/",
     featured: true
   },
   {
-    title: "Galaxy Chat",
-    description: "Real-time chat application with private and group messaging features. Uses Socket.io for real-time communication and Firebase for authentication and data storage.",
+    title: "RightChoice Trust",
+    description: "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
     image: "/img/project2.jpg",
-    tech: ["React", "Firebase", "Socket.io", "Tailwind CSS"],
-    github: "https://github.com/krishnarajan7/galaxy-chat",
-    demo: "https://galaxy-chat.demo.com",
+    tech: ["React", "JavaScript", "Tailwind CSS","HTML5","CSS3"],
+    github: "https://github.com/Krishnarajan7/RightChoice-Trust",
+    demo: "https://rightchoicetrust.com/",
     featured: true
   },
   {
-    title: "Orbit Dashboard",
-    description: "Admin dashboard template with dark theme, data visualization, and customizable widgets. Fully responsive and built with modern web technologies.",
+    title: "Space Porfolio",
+    description: "My personal portfolio is built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design. It highlights my projects and skills with responsive UI, smooth animations, and a modern, cosmic aesthetic.",
     image: "/img/project3.jpg",
-    tech: ["React", "Tailwind CSS", "Chart.js", "React Router"],
+    tech: ["React", "Tailwind CSS", "JavaScript", "React Router",],
     github: "https://github.com/krishnarajan7/orbit-dashboard",
     demo: "https://orbit-dashboard.demo.com",
     featured: true
   },
   {
-    title: "Stellar Weather",
-    description: "Weather application that displays real-time weather data and forecasts. Includes location detection, search functionality, and interactive maps.",
+    title: "Greenden",
+    description: "GreenDen is a modern, eco-friendly e-commerce website built with React, Tailwind CSS, and JavaScript, designed to promote sustainable living.",
     image: "/img/project4.jpg", 
-    tech: ["React", "OpenWeather API", "Mapbox", "CSS"],
+    tech: ["HTML5", "Tailwind", "JavaScript", "CSS3"],
     github: "https://github.com/krishnarajan7/stellar-weather",
-    demo: "https://stellar-weather.demo.com"
+    demo: "https://stellar-weather.demo.com",
+
   },
   {
-    title: "Nebula Notes",
-    description: "Note-taking application with markdown support, categories, and search functionality. Syncs data across devices using local storage and optional cloud backup.",
+    title: "EduVerse",
+    description: "My ERP system is a full-stack web application built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
     image: "/img/project5.jpg",
-    tech: ["React", "Local Storage", "Markdown", "IndexedDB"],
+    tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/krishnarajan7/nebula-notes",
-    demo: "https://nebula-notes.demo.com"
+    demo: "https://nebula-notes.demo.com",
+    featured: true,
   },
-  {
-    title: "Space Fitness",
-    description: "Fitness tracking application that allows users to create workout plans, track progress, and visualize performance over time.",
-    image: "/img/project6.jpg",
-    tech: ["React Native", "Firebase", "Chart.js", "Expo"],
-    github: "https://github.com/krishnarajan7/space-fitness",
-    demo: "https://space-fitness.demo.com"
-  },
-  {
-    title: "Algorithm Visualizer",
-    description: "Interactive visualization tool for common algorithms including sorting, pathfinding, and graph algorithms. Educational tool that helps understand complex algorithms.",
-    image: "/img/project7.jpg",
-    tech: ["React", "JavaScript", "Data Structures", "Canvas API"],
-    github: "https://github.com/krishnarajan7/algorithm-visualizer",
-    demo: "https://algorithm-visualizer.demo.com"
-  },
-  {
-    title: "Portfolio Website",
-    description: "Modern portfolio website built with React, featuring dark mode, smooth animations, and responsive design. Showcasing projects, skills, and contact information.",
-    image: "/img/project8.jpg",
-    tech: ["React", "Tailwind CSS", "Animation", "Responsive Design"],
-    github: "https://github.com/krishnarajan7/portfolio",
-    demo: "https://krishnarajan.dev"
-  }
+
 ];
 
 const ProjectCard = ({ project }) => {
