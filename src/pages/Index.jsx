@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Stars from '../components/Stars';
+import BackgroundDetails from '../components/BackgroundDetails';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
@@ -126,6 +127,7 @@ const Index = () => {
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <Stars isDarkMode={isDarkMode} />
+      <BackgroundDetails isDarkMode={isDarkMode} />
       <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Navbar isDarkMode={isDarkMode} />
       <Hero isDarkMode={isDarkMode} />
