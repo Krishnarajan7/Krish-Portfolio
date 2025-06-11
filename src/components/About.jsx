@@ -159,11 +159,10 @@ const About = ({ isDarkMode }) => {
                   </div>
                   <div className="p-4 bg-space-light/50 rounded-lg border border-white/10">
                     <h4 className="font-semibold text-white mb-2">
-                      DevOps & Deployment
+                      API Development
                     </h4>
                     <p className="text-white/70 text-sm">
-                      Setting up CI/CD pipelines and deploying applications on
-                      cloud platforms.
+                      Designing and building robust RESTful APIs for seamless communication between frontend and backend systems.
                     </p>
                   </div>
                 </div>

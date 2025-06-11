@@ -13,17 +13,17 @@ const SKILL_CATEGORIES = [
       { name: "JavaScript", proficiency: 85 },
       { name: "HTML/CSS", proficiency: 90 },
       { name: "Tailwind CSS", proficiency: 85 },
-      { name: "TypeScript", proficiency: 75 },
+      { name: "BootStrap", proficiency: 75 },
     ],
   },
   {
     title: "Backend",
     skills: [
+      { name: "Python", proficiency: 85 },
       { name: "Node.js", proficiency: 80 },
       { name: "Django", proficiency: 75 },
       { name: "PostgreSQL", proficiency: 70 },
       { name: "RESTful APIs", proficiency: 85 },
-      { name: "GraphQL", proficiency: 65 },
     ],
   },
   {
@@ -31,9 +31,9 @@ const SKILL_CATEGORIES = [
     skills: [
       { name: "Git/GitHub", proficiency: 90 },
       { name: "Docker", proficiency: 65 },
+      { name: "Postman", proficiency: 70 },
       { name: "AWS", proficiency: 60 },
       { name: "VS Code", proficiency: 95 },
-      { name: "Figma", proficiency: 70 },
     ],
   },
 ];
