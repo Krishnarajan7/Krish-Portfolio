@@ -55,22 +55,20 @@ const About = ({ isDarkMode }) => {
     {
       year: "2022",
       title: "Started Programming Journey",
-      description:
-        "Began learning programming with Python, C, and C++",
+      description: "Began learning programming with Python, C, and C++",
       icon: Code,
       color: "from-blue-500 to-cyan-500",
     },
     {
       year: "2023",
       title: "Problem Solving and DSA",
-      description:
-        "",
+      description: "",
       icon: Rocket,
       color: "from-purple-500 to-pink-500",
     },
     {
       year: "2024",
-      title:"First Freelance Project",
+      title: "First Freelance Project",
       description: "Developed a website for Vedha Clothing",
       icon: Trophy,
       color: "from-orange-500 to-red-500",
@@ -78,8 +76,7 @@ const About = ({ isDarkMode }) => {
     {
       year: "2025",
       title: "Second Freelance Project",
-      description:
-        "Developed a modern website for RightChoice Trust",
+      description: "Developed a modern website for RightChoice Trust",
       icon: Briefcase,
       color: "from-green-500 to-emerald-500",
     },
@@ -162,7 +159,8 @@ const About = ({ isDarkMode }) => {
                       API Development
                     </h4>
                     <p className="text-white/70 text-sm">
-                      Designing and building robust RESTful APIs for seamless communication between frontend and backend systems.
+                      Designing and building robust RESTful APIs for seamless
+                      communication between frontend and backend systems.
                     </p>
                   </div>
                 </div>
