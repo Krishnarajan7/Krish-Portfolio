@@ -211,6 +211,7 @@ const Skills = ({ isDarkMode }) => {
                 "SASS",
                 "Express",
                 "Firebase",
+                "Azure",
                 "Responsive Design",
                 "Accessibility",
                 "Performance Optimization",

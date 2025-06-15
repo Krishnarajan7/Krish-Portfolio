@@ -14,9 +14,8 @@ const NotFound = () => {
             className="w-64 animate-float"
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = "https://placehold.co/300x300/1A1F2C/FFFFFF?text=👨‍🚀";
-            }}
-          />
+              e.target.src = "/assets/images/404.JPG";
+            }}          />
         </div>
         
         <h1 className="text-5xl font-bold mb-4 text-gradient">404</h1>
