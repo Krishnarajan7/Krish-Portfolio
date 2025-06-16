@@ -7,7 +7,7 @@ This site showcases who I am as a developer — my work, my journey, and my pass
 
 ## 🔭 Live Preview
 
-Visit: [https://krish-codes-universe.vercel.app](https://krish-codes-universe.vercel.app)
+Visit: [https://krish-dev-portfolio.netlify.app/](https://krish-dev-portfolio.netlify.app/)
 
 ---
 
