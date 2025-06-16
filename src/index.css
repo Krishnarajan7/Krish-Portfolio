@@ -502,3 +502,5 @@ body.light-mode ::-webkit-scrollbar-thumb:hover {
 .animate-drift {
   animation: drift 12s ease-in-out infinite;
 }
+
+

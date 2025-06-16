@@ -8,6 +8,7 @@ module.exports = {
     "./app/**/*.{js,jsx,ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  
   prefix: "",
   theme: {
     container: {
@@ -140,3 +141,4 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+

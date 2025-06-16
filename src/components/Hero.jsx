@@ -53,7 +53,7 @@ const Hero = ({ isDarkMode }) => {
       id="home"
       className="min-h-screen pt-16 pb-12 flex items-center relative overflow-hidden"
     >
-      <div className="space-container grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+      <div className="space-container grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
         <div
           className="order-2 md:order-1"
           ref={contentRef}
@@ -203,7 +203,7 @@ const Hero = ({ isDarkMode }) => {
             <img
               src="/assets/images/Krish.jpg"
               alt="Profile Pic"
-              className="w-64 h-64 rounded-full object-cover shadow-lg border-4 border-purple-500 animate-float"
+              className="w-full h-full rounded-full object-cover shadow-lg border-4 border-purple-500 animate-float"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "/assets/images/Krish.jpg ";
