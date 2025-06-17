@@ -81,6 +81,10 @@ body.light-mode {
 
 /* Space theme utility classes */
 @layer components {
+  .no-wrap{
+    white-space: nowrap;
+  }
+  
   .space-container {
     @apply container max-w-7xl mx-auto px-4 md:px-8 w-full;
   }

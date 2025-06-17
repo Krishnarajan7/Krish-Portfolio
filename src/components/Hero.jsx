@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 
@@ -48,6 +48,45 @@ const Hero = ({ isDarkMode }) => {
     }
   };
 
+  const fullName = "Krishnarajan";
+  const [displayedLetters, setDisplayedLetters] = useState(
+    Array(fullName.length).fill("")
+  );
+
+  useEffect(() => {
+    const letters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*";
+    const timeouts = [];
+
+    fullName.split("").forEach((char, index) => {
+      let iteration = 0;
+      const interval = setInterval(() => {
+        setDisplayedLetters((prev) => {
+          const updated = [...prev];
+          updated[index] = letters[Math.floor(Math.random() * letters.length)];
+          return updated;
+        });
+
+        iteration++;
+        if (iteration > 15 + index * 4) {
+          clearInterval(interval);
+          setDisplayedLetters((prev) => {
+            const updated = [...prev];
+            updated[index] = char;
+            return updated;
+          });
+        }
+      }, 50);
+
+      // Store interval reference for cleanup
+      timeouts.push(interval);
+    });
+
+    return () => {
+      timeouts.forEach(clearInterval);
+    };
+  }, []);
+
   return (
     <section
       id="home"
@@ -65,9 +104,24 @@ const Hero = ({ isDarkMode }) => {
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-            <span className="text-gradient">Hi, I'm Krishnarajan</span>{" "}
-            {/* <span className="inline-block animate-float">👨‍🚀</span> */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-wide font-mono bg-transparent">
+            <span
+              className={`text-gradient ${
+                isDarkMode ? "animate-pulse-glow" : ""
+              } bg-transparent`}
+            >
+              {"Hey there, I'm"}
+              <span className="no-wrap bg-transparent">
+                {displayedLetters.map((letter, i) => (
+                  <span
+                    key={i}
+                    className="inline-block transition-all duration-100 ease-in-out bg-transparent"
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+            </span>
           </h1>
 
           <h2 className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 text-white/70">
