@@ -57,7 +57,7 @@ Krish-portfolio/
 ```
 
 1. Clone the Repository
-git clone https://github.com/Krishnarajan7/Krishna-portfolio.git
+git clone https://github.com/Krishnarajan7/Krish-portfolio.git
 cd Krishna-portfolio
 
 2. Install Dependencies
