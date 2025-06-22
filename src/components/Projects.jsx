@@ -8,7 +8,7 @@ const PROJECTS = [
     title: "Vedha Clothing",
     description:
       "Vedha Clothing is a modern e-commerce platform crafted to showcase timeless Indian fashion. Built using responsive web technologies like HTML5, CSS3, JavaScript.",
-    image: "/img/project1.jpg",
+    image: "public/assets/images/Vedhaclothing.png",
     tech: ["React", "JavaScript", "Tailwind CSS", "MongoDB"],
     github: "https://github.com/Krishnarajan7/Client-Website-1",
     demo: "https://vedhaclothing.in/",
@@ -18,7 +18,7 @@ const PROJECTS = [
     title: "RightChoice Trust",
     description:
       "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
-    image: "/img/project2.jpg",
+    image: "public/assets/images/Rightchoice.png",
     tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
     github: "https://github.com/Krishnarajan7/RightChoice-Trust",
     demo: "https://rightchoicetrust.com/",
@@ -28,7 +28,7 @@ const PROJECTS = [
     title: "Space Porfolio",
     description:
       "My personal portfolio is built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design. It highlights my projects and skills with responsive UI, smooth animations, and a modern, cosmic aesthetic.",
-    image: "/img/project3.jpg",
+    image: "public/assets/images/Portfolio.png",
     tech: ["React", "Tailwind CSS", "JavaScript", "React Router"],
     github: "https://github.com/Krishnarajan7/Krish-Portfolio",
     demo: "https://krish-dev-portfolio.netlify.app/",

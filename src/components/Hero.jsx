@@ -148,7 +148,7 @@ const Hero = ({ isDarkMode }) => {
             </button>
 
             <a
-              href="/resume.pdf"
+              href="public/assets/resume/Krishnarajan_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 sm:px-6 py-2.5 sm:py-3 border border-white/20 hover:border-space-accent/50 text-white text-sm sm:text-base rounded-lg flex items-center gap-2 transition-all hover:translate-y-[-2px] hover:bg-white/5 hover:shadow-md"
