@@ -35,13 +35,14 @@ const PROJECTS = [
     featured: true,
   },
   {
-    title: "Greenden",
+    title: "MiMacademy",
     description:
-      "GreenDen is a modern, eco-friendly e-commerce website built with React, Tailwind CSS, and JavaScript, designed to promote sustainable living.",
-    image: "/img/project4.jpg",
-    tech: ["HTML5", "Tailwind", "JavaScript", "CSS3"],
-    github: "https://github.com/aishwaryasenthilnathan/Greenden",
+      "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
+    image: "/assets/images/MiMacademy.png",
+    tech: ["HTML5","React","Tailwind", "JavaScript", "CSS3"],
+    github: "https://github.com/Krishnarajan7/MiMacademy",
     demo: "https://stellar-weather.demo.com",
+    featured:true,
   },
   {
     title: "EduVerse",
@@ -50,6 +51,16 @@ const PROJECTS = [
     image: "/img/project5.jpg",
     tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/Krishnarajan7/EduVerse",
+    demo: "https://nebula-notes.demo.com",
+    featured: true,
+  },
+  {
+    title: "Grovvest Academy",
+    description:
+      "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL. Includes payment gateway integration for premium content.",
+    image: "/assets/images/grovvest.png",
+    tech: ["Node.js","Express.js","React","Tailwind", "JavaScript","Postgres"],
+    github: "https://github.com/Krishnarajan7/grow_with_25",
     demo: "https://nebula-notes.demo.com",
     featured: true,
   },
