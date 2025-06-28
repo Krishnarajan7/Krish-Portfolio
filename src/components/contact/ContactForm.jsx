@@ -85,7 +85,7 @@ const ContactForm = ({ isDarkMode }) => {
           value={formData.name}
           onChange={handleChange}
           className={inputClasses}
-          placeholder="Krisnarajan"
+          placeholder="Krishnarajan"
         />
       </div>
       
