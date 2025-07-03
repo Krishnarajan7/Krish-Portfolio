@@ -54,29 +54,33 @@ const About = ({ isDarkMode }) => {
   const timelineEvents = [
     {
       year: "2022",
-      title: "Started Programming Journey",
-      description: "Began learning programming with Python, C, and C++",
+      title: "Began Programming Journey",
+      description:
+        "Started learning programming fundamentals using Python, C, and C++.",
       icon: Code,
       color: "from-blue-500 to-cyan-500",
     },
     {
       year: "2023",
-      title: "Problem Solving and DSA",
-      description: "",
+      title: "Focused on Problem Solving and DSA",
+      description:
+        "Sharpened algorithmic thinking and data structure knowledge through competitive programming and online challenges.",
       icon: Rocket,
       color: "from-purple-500 to-pink-500",
     },
     {
       year: "2024",
-      title: "First Freelance Project",
-      description: "Developed a website for Vedha Clothing",
+      title: "Delivered First Freelance Project",
+      description:
+        "Developed and deployed a website for Vedha Clothing — marking the beginning of my freelance journey.",
       icon: Trophy,
       color: "from-orange-500 to-red-500",
     },
     {
       year: "2025",
-      title: "Second Freelance Project",
-      description: "Developed a modern website for RightChoice Trust",
+      title: "Expanded Freelance Portfolio",
+      description:
+        "Successfully completed three freelance projects, including a website for an international client.",
       icon: Briefcase,
       color: "from-green-500 to-emerald-500",
     },
@@ -175,7 +179,7 @@ const About = ({ isDarkMode }) => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center gap-3 text-white/70">
                     <Coffee className="w-5 h-5 text-space-accent/80" />
-                    <span className="text-sm">Coffee Enthusiast</span>
+                    <span className="text-sm">Horlicks Enthusiast</span>
                   </div>
                   <div className="flex items-center gap-3 text-white/70">
                     <Users className="w-5 h-5 text-space-accent/80" />
@@ -274,7 +278,7 @@ const About = ({ isDarkMode }) => {
                 </div>
                 <div className="cosmic-card p-4 text-center">
                   <div className="text-2xl font-bold text-space-accent mb-1">
-                    13+
+                    15+
                   </div>
                   <div className="text-white/60 text-sm">
                     GitHub Repositories
@@ -299,9 +303,11 @@ const About = ({ isDarkMode }) => {
                     "React",
                     "Node.js",
                     "JavaScript",
+                    "TailwindCSS",
                     "Python",
+                    "Django",
+                    "RestAPI",
                     "PostgreSQL",
-                    "AWS",
                   ].map((tech, idx) => (
                     <span
                       key={idx}
