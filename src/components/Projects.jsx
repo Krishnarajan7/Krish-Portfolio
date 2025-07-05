@@ -41,7 +41,7 @@ const PROJECTS = [
     image: "/assets/images/MiMacademy.png",
     tech: ["HTML5","React","Tailwind", "JavaScript", "CSS3"],
     github: "https://github.com/Krishnarajan7/MiMacademy",
-    demo: "https://stellar-weather.demo.com",
+    demo: "https://mimacademy.org",
     featured:true,
   },
   {
@@ -51,7 +51,7 @@ const PROJECTS = [
     image: "/img/project5.jpg",
     tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/Krishnarajan7/EduVerse",
-    demo: "https://nebula-notes.demo.com",
+    demo: "https://edunex.org",
     featured: true,
   },
   {
@@ -61,7 +61,7 @@ const PROJECTS = [
     image: "/assets/images/grovvest.png",
     tech: ["Node.js","Express.js","React","Tailwind", "JavaScript","Postgres"],
     github: "https://github.com/Krishnarajan7/grow_with_25",
-    demo: "https://nebula-notes.demo.com",
+    demo: "https://growvestaca.netlify.app/",
     featured: true,
   },
 ];
