@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '../lib/utils';
 import Stars from '../components/Stars';
 import BackgroundDetails from '../components/BackgroundDetails';
 import Hero from '../components/Hero';
@@ -9,6 +10,7 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
+import Navbar from '../components/Navbar';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
