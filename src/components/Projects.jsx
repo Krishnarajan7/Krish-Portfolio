@@ -48,7 +48,7 @@ const PROJECTS = [
     title: "EduVerse",
     description:
       "My ERP system is a full-stack web application built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
-    image: "/img/project5.jpg",
+    image: "/assets/images/EduVerse.png",
     tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/Krishnarajan7/EduVerse",
     demo: "https://edunex.org",

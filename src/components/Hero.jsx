@@ -89,7 +89,7 @@ const Hero = ({ isDarkMode }) => {
 
   return (
     <section
-      id="home"
+      id="hero"
       className="min-h-screen pt-16 pb-12 flex items-center relative overflow-hidden"
     >
       <div className="space-container grid md:grid-cols-2 gap-8 sm:gap-12 items-center">

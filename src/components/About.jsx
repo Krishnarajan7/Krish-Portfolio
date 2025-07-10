@@ -133,38 +133,42 @@ const About = ({ isDarkMode }) => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="p-4 bg-space-light/50 rounded-lg border border-white/10">
                     <h4 className="font-semibold text-white mb-2">
-                      Frontend Development
+                      Problem Solving & Algorithms
                     </h4>
-                    <p className="text-white/70 text-sm">
-                      Creating responsive, interactive user interfaces with
-                      React, Vue, and modern CSS frameworks.
+                    <p className="text-white/70 text-sm text-justify leading-relaxed">
+                      Practicing and applying data structures and algorithms
+                      with platforms like Leetcode to build strong logical
+                      thinking and coding skills.
                     </p>
                   </div>
                   <div className="p-4 bg-space-light/50 rounded-lg border border-white/10">
                     <h4 className="font-semibold text-white mb-2">
-                      Backend Development
+                      Frontend Projects
                     </h4>
-                    <p className="text-white/70 text-sm">
-                      Building robust APIs and server-side applications with
-                      Node.js, Python, and cloud technologies.
+                    <p className="text-white/70 text-sm text-justify leading-relaxed">
+                      Building clean and responsive UIs using React, Tailwind
+                      CSS, and JavaScript. Focused on accessibility,
+                      interactivity, and performance.
                     </p>
                   </div>
                   <div className="p-4 bg-space-light/50 rounded-lg border border-white/10">
                     <h4 className="font-semibold text-white mb-2">
-                      Database Design
+                      Learning Backend Concepts
                     </h4>
-                    <p className="text-white/70 text-sm">
-                      Designing efficient database schemas and optimizing
-                      queries for better performance.
+                    <p className="text-white/70 text-sm text-justify leading-relaxed">
+                      Exploring backend fundamentals like APIs, server-side
+                      logic, and databases using Node.js and Python, with a
+                      focus on real-world use cases.
                     </p>
                   </div>
                   <div className="p-4 bg-space-light/50 rounded-lg border border-white/10">
                     <h4 className="font-semibold text-white mb-2">
-                      API Development
+                      Continuous Growth
                     </h4>
-                    <p className="text-white/70 text-sm">
-                      Designing and building robust RESTful APIs for seamless
-                      communication between frontend and backend systems.
+                    <p className="text-white/70 text-sm text-justify leading-relaxed">
+                      Constantly improving through hands-on projects, coding
+                      challenges, and learning modern web technologies to build
+                      a solid developer foundation.
                     </p>
                   </div>
                 </div>
@@ -308,6 +312,8 @@ const About = ({ isDarkMode }) => {
                     "Django",
                     "RestAPI",
                     "PostgreSQL",
+                    "Postman",
+                    "VS Code",
                   ].map((tech, idx) => (
                     <span
                       key={idx}
