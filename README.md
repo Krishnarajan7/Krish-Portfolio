@@ -57,23 +57,38 @@ Krish-portfolio/
 ```
 
 1. Clone the Repository
+```
 git clone https://github.com/Krishnarajan7/Krish-portfolio.git
+```
+
+after cloning, run this command.👇🏻
+
+```
 cd Krish-portfolio
+```
 
 2. Install Dependencies
+```
 npm install
+```
 
 3. Start the Development Server
+```
 npm run dev
+```
 App will be available at http://localhost:5173/ (or your configured port).
 
 📦 Build for Production
+```
 npm run build
+```
 To preview the production build locally:
+```
 npm run preview
+```
 
 
-## 👨‍🚀 Author – KrishnaRajan
+## 👨‍🚀 Author – Krishnarajan
 
 📧 [krishh.v777@gmail.com](mailto:krishh.v777@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/krishnarajan007)  
