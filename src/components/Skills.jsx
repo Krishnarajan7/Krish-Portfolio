@@ -9,8 +9,8 @@ const SKILL_CATEGORIES = [
   {
     title: "Frontend",
     skills: [
-      { name: "React", proficiency: 90 },
-      { name: "JavaScript", proficiency: 85 },
+      { name: "React", proficiency: 85 },
+      { name: "JavaScript", proficiency: 90 },
       { name: "HTML/CSS", proficiency: 90 },
       { name: "Tailwind CSS", proficiency: 85 },
       { name: "BootStrap", proficiency: 75 },
@@ -208,13 +208,15 @@ const Skills = ({ isDarkMode }) => {
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {[
                 "Next.js",
-                "SASS",
                 "Express",
+                "JWT",
                 "Firebase",
                 "Azure",
                 "Responsive Design",
                 "Accessibility",
+                "SASS",
                 "Performance Optimization",
+                "Netlify"
               ].map((tech, idx) => (
                 <span
                   key={idx}
