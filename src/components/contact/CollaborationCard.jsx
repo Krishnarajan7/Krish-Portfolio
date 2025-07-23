@@ -14,7 +14,7 @@ const CollaborationCard = () => {
           interesting in mind, don't hesitate to reach out!
         </p>
         <a
-          href="mailto:hello@krishnarajan.dev"
+          href="mailto:krishh.v777@gmail.com"
           className="inline-flex items-center text-space-accent hover:underline"
         >
           Get in touch <ArrowRight className="w-4 h-4 ml-1" />
