@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Github, ArrowUpRight, Star, Code, Trophy } from "lucide-react";
+import { Github, ArrowUpRight, Star, Code } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
+import { Badge } from "@/components/ui/badge";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PROJECTS = [
   {
@@ -39,10 +41,10 @@ const PROJECTS = [
     description:
       "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
     image: "/assets/images/MiMacademy.png",
-    tech: ["HTML5","React","Tailwind", "JavaScript", "CSS3"],
+    tech: ["HTML5", "React", "Tailwind", "JavaScript", "CSS3"],
     github: "https://github.com/Krishnarajan7/MiMacademy",
     demo: "https://mimacademy.org",
-    featured:true,
+    featured: true,
   },
   {
     title: "EduVerse",
@@ -59,91 +61,117 @@ const PROJECTS = [
     description:
       "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL. Includes payment gateway integration for premium content.",
     image: "/assets/images/grovvest.png",
-    tech: ["Node.js","Express.js","React","Tailwind", "JavaScript","Postgres"],
+    tech: [
+      "Node.js",
+      "Express.js",
+      "React",
+      "Tailwind",
+      "JavaScript",
+      "Postgres",
+    ],
     github: "https://github.com/Krishnarajan7/grow_with_25",
     demo: "https://growvestaca.netlify.app/",
     featured: true,
   },
 ];
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, isDarkMode }) => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="cosmic-card overflow-hidden group relative h-full">
-      <div className="h-40 sm:h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = `https://placehold.co/800x400/1A1F2C/FFFFFF?text=${encodeURIComponent(
-              project.title.replace(" ", "+")
-            )}`;
-          }}
-        />
-        {project.featured && (
-          <div className="absolute top-3 left-3 flex items-center gap-1 bg-space-darker/80 px-2 py-1 rounded-full backdrop-blur-sm">
-            <Star className="w-3 h-3 text-yellow-400" fill="currentColor" />
-            <span className="text-xs text-white/90">Featured</span>
-          </div>
-        )}
-        <div className="absolute top-3 right-3 flex gap-2">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-space-darker/80 p-2 rounded-full backdrop-blur-sm hover:bg-space-dark transition-colors"
-            aria-label={`View ${project.title} source code on GitHub`}
-          >
-            <Github className="w-4 h-4 text-white" />
-          </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-space-darker/80 p-2 rounded-full backdrop-blur-sm hover:bg-space-dark transition-colors"
-            aria-label={`View ${project.title} live demo`}
-          >
-            <ArrowUpRight className="w-4 h-4 text-white" />
-          </a>
-        </div>
-      </div>
-      <div className="p-4 sm:p-6 relative flex flex-col h-[calc(100%-10rem)] sm:h-[calc(100%-12rem)]">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">
-          {project.title}
-        </h3>
-        <p className="text-white/70 text-xs sm:text-sm mb-4 line-clamp-3 flex-grow">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
-          {project.tech.slice(0, isMobile ? 3 : 5).map((tech, idx) => (
-            <span
-              key={idx}
-              className="px-2 py-0.5 sm:py-1 bg-space-light rounded-md text-white/70 text-xs"
-            >
-              {tech}
-            </span>
-          ))}
-          {project.tech.length > (isMobile ? 3 : 5) && (
-            <span className="px-2 py-0.5 sm:py-1 bg-space-light/50 rounded-md text-white/50 text-xs">
-              +{project.tech.length - (isMobile ? 3 : 5)} more
-            </span>
+    <div className="cosmic-card group relative h-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+      {/* Cosmic background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-space-accent/5 to-space-nebula/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      {/* Glowing border effect */}
+      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-space-accent/20 via-transparent to-space-nebula/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+
+      <div className="relative z-10">
+        <div className="relative overflow-hidden rounded-t-lg">
+          <AspectRatio ratio={16 / 9}>
+            <img
+              src={project.image}
+              alt={`${project.title} preview`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = `https://placehold.co/800x450/0F1729/9b87f5?text=${encodeURIComponent(
+                  project.title.replace(" ", "+")
+                )}`;
+              }}
+            />
+          </AspectRatio>
+
+          {/* Image overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-space-darker/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+
+          {project.featured && (
+            <div className="absolute top-3 left-3">
+              <div className="relative">
+                <div className="absolute inset-0 bg-space-accent/30 blur-md rounded-full animate-pulse-glow"></div>
+                <Badge className="relative flex items-center gap-1 bg-space-accent/90 text-white border-none px-3 py-1 rounded-full font-medium shadow-lg">
+                  <Star className="w-3 h-3" fill="currentColor" />
+                  Featured
+                </Badge>
+              </div>
+            </div>
           )}
+
+          <div className="absolute top-3 right-3 flex gap-2">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full backdrop-blur-md bg-space-dark/80 text-white border border-space-accent/30 hover:bg-space-accent hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
+              aria-label={`View ${project.title} source code on GitHub`}
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full backdrop-blur-md bg-space-dark/80 text-white border border-space-accent/30 hover:bg-space-accent hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
+              aria-label={`View ${project.title} live demo`}
+            >
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        <div className="p-6 space-y-4">
+          <div className="space-y-2">
+            <h3 className="text-xl font-bold text-white group-hover:text-gradient transition-all duration-300">
+              {project.title}
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed line-clamp-3">
+              {project.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 pt-2">
+            {project.tech.slice(0, isMobile ? 3 : 5).map((tech, idx) => (
+              <span
+                key={idx}
+                className="px-3 py-1 text-xs font-medium rounded-full bg-space-accent/10 text-space-accent border border-space-accent/20 hover:bg-space-accent/20 hover:border-space-accent/40 transition-colors duration-300"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.tech.length > (isMobile ? 3 : 5) && (
+              <span className="px-3 py-1 text-xs font-medium rounded-full bg-space-nebula/10 text-space-nebula border border-space-nebula/20">
+                +{project.tech.length - (isMobile ? 3 : 5)} more
+              </span>
+            )}
+          </div>
         </div>
       </div>
-      {/* Animated border effect */}
-      <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
-        <div
-          className="absolute -inset-1 rounded-lg opacity-40"
-          style={{
-            background: "linear-gradient(90deg, #9b87f5, #D946EF, #9b87f5)",
-            backgroundSize: "200% 100%",
-            animation: "gradient-slide 2s linear infinite",
-          }}
-        ></div>
-      </div>
+
+      {/* Floating particles effect */}
+      <div className="absolute top-4 left-4 w-1 h-1 bg-space-accent rounded-full opacity-40 animate-twinkle"></div>
+      <div className="absolute bottom-8 right-8 w-1.5 h-1.5 bg-space-nebula rounded-full opacity-30 animate-twinkle-slow"></div>
+      <div className="absolute top-1/2 left-8 w-0.5 h-0.5 bg-white rounded-full opacity-50 animate-twinkle-fast"></div>
     </div>
   );
 };
@@ -167,26 +195,54 @@ const Projects = ({ isDarkMode }) => {
           subtitle="Explore the digital constellations I've created"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
-          {PROJECTS.slice(0, visibleCount).map((project, idx) => (
-            <ProjectCard key={idx} project={project} />
-          ))}
-        </div>
+        {isMobile ? (
+          <div className="relative">
+            <div
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4 scrollbar-hide"
+              style={{ scrollBehavior: "smooth" }}
+              aria-label="Projects carousel"
+            >
+              {PROJECTS.map((project, idx) => (
+                <div
+                  key={idx}
+                  className="min-w-[300px] w-[85%] max-w-[350px] snap-center flex-shrink-0"
+                >
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
+            {/* Scroll indicators */}
+            <div className="flex justify-center mt-4 gap-1">
+              {PROJECTS.slice(0, Math.min(PROJECTS.length, 5)).map((_, idx) => (
+                <div
+                  key={idx}
+                  className="w-2 h-2 rounded-full bg-space-accent/30"
+                ></div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+            {PROJECTS.slice(0, visibleCount).map((project, idx) => (
+              <ProjectCard key={idx} project={project} />
+            ))}
+          </div>
+        )}
 
-        {hasMoreProjects && (
+        {hasMoreProjects && !isMobile && (
           <div className="mt-10 sm:mt-12 text-center">
             <button
               onClick={loadMore}
-              className="px-5 sm:px-6 py-2.5 sm:py-3 border border-space-accent/50 text-white rounded-lg transition-all hover:bg-space-accent/10"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg border border-primary/30 text-foreground transition-colors hover:bg-primary/10 hover:shadow"
             >
               Load More Projects
             </button>
           </div>
         )}
 
-        {/* Profile links - improved for mobile */}
+        {/* Profile links - enhanced hover effects */}
         <div className="mt-16 sm:mt-20 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-white">
+          <h3 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-white-200">
             Check Out My Profiles
           </h3>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
@@ -194,25 +250,25 @@ const Projects = ({ isDarkMode }) => {
               href="https://github.com/Krishnarajan7"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-space-light rounded-lg hover:bg-space-accent/20 transition-colors"
+              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <Github className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              <span className="text-sm sm:text-base text-white">GitHub</span>
+              <Github className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
+              <span className="text-sm sm:text-base">GitHub</span>
             </a>
             <a
               href="https://leetcode.com/u/KrishCodes7/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-space-light rounded-lg hover:bg-space-accent/20 transition-colors"
+              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <Code className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              <span className="text-sm sm:text-base text-white">LeetCode</span>
+              <Code className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
+              <span className="text-sm sm:text-base">LeetCode</span>
             </a>
             <a
               href="https://www.linkedin.com/in/krishnarajan007"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-space-light rounded-lg hover:bg-space-accent/20 transition-colors"
+              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -224,17 +280,29 @@ const Projects = ({ isDarkMode }) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-white w-4 h-4 sm:w-5 sm:h-5"
+                className="text-foreground w-4 h-4 sm:w-5 sm:h-5"
               >
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
-              <span className="text-sm sm:text-base text-white">LinkedIn</span>
+              <span className="text-sm sm:text-base">LinkedIn</span>
             </a>
           </div>
         </div>
       </div>
+
+      {/* Enhanced CSS for gradient animation */}
+      <style jsx>{`
+        @keyframes gradient-slide {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 200% 50%;
+          }
+        }
+      `}</style>
     </section>
   );
 };

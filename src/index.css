@@ -463,6 +463,12 @@ body.light-mode ::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* Hide scrollbar for mobile carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Background details and gradients */
 .bg-gradient-radial {
   background: radial-gradient(circle, var(--tw-gradient-stops));
