@@ -78,9 +78,9 @@ const About = ({ isDarkMode }) => {
     },
     {
       year: "2025",
-      title: "Expanded Freelance Portfolio",
+      title: "Ten Freelance Projects",
       description:
-        "Successfully completed three freelance projects, including a website for an international client.",
+        "Successfully completed 10+ freelance projects, including a website for an international client.",
       icon: Briefcase,
       color: "from-green-500 to-emerald-500",
     },
@@ -274,7 +274,7 @@ const About = ({ isDarkMode }) => {
                 </div>
                 <div className="cosmic-card p-4 text-center">
                   <div className="text-2xl font-bold text-space-accent mb-1">
-                    4+
+                    10+
                   </div>
                   <div className="text-white/60 text-sm">
                     Projects Completed
@@ -282,7 +282,7 @@ const About = ({ isDarkMode }) => {
                 </div>
                 <div className="cosmic-card p-4 text-center">
                   <div className="text-2xl font-bold text-space-accent mb-1">
-                    15+
+                    20+
                   </div>
                   <div className="text-white/60 text-sm">
                     GitHub Repositories
@@ -304,14 +304,15 @@ const About = ({ isDarkMode }) => {
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {[
+                    "Python",
+                    "JavaScript",
                     "React",
                     "Node.js",
-                    "JavaScript",
-                    "TailwindCSS",
-                    "Python",
                     "Django",
+                    "TailwindCSS",
                     "RestAPI",
                     "PostgreSQL",
+                    "Vite",
                     "Postman",
                     "VS Code",
                   ].map((tech, idx) => (

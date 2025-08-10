@@ -2,28 +2,42 @@ import React, { useState } from "react";
 import { Github, ArrowUpRight, Star, Code } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PROJECTS = [
   {
-    title: "Vedha Clothing",
+    title: "EduVerse",
     description:
-      "Vedha Clothing is a modern e-commerce platform crafted to showcase timeless Indian fashion. Built using responsive web technologies like HTML5, CSS3, JavaScript.",
-    image: "/assets/images/Vedhaclothing.png",
-    tech: ["React", "JavaScript", "Tailwind CSS", "MongoDB"],
-    github: "https://github.com/Krishnarajan7/Client-Website-1",
-    demo: "https://vedhaclothing.in/",
+      "My ERP system is a full-stack web application built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
+    image: "/assets/images/EduVerse.png",
+    tech: ["Python", "Django", "REST API", "React", "Tailwind"],
+    github: "https://github.com/Krishnarajan7/EduVerse",
+    demo: "https://eduverse-erp.netlify.app/",
     featured: true,
   },
   {
-    title: "RightChoice Trust",
+    title: "HalleyShop",
     description:
-      "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
-    image: "/assets/images/Rightchoice.png",
-    tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
-    github: "https://github.com/Krishnarajan7/RightChoice-Trust",
-    demo: "https://rightchoicetrust.com/",
+      "HalleyShop is a modern e-commerce platform with role-based access for customers and admins, secure authentication, and customer management. Built with Node.js, Express, Prisma, and JWT, it delivers scalable, API-driven architecture with strong validation and permissions.",
+    image: "/assets/images/halley.png",
+    tech: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+      "JWT Authentication",
+      "bcryptjs",
+      "Zod Validation",
+      "Multer",
+      "Cloudinary",
+    ],
+    github: "https://github.com/Krishnarajan7/halleyshop",
+    demo: "https://halleyshop.netlify.app/",
     featured: true,
   },
   {
@@ -37,6 +51,26 @@ const PROJECTS = [
     featured: true,
   },
   {
+    title: "GeNcert",
+    description:
+      "GenCert is a lightweight web tool for instantly creating professional training or achievement certificates with customizable templates. It supports bulk data import, QR code verification, and a mobile-friendly interface—making certificate creation simple and fast for educators, event organizers, and businesses.",
+    image: "/assets/images/gencert.png",
+    tech: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "Python",
+      "Flask",
+      "Pandas",
+      "OpenPyXL",
+      "ReportLab",
+      "qrcode",
+    ],
+    github: "https://github.com/Krishnarajan7/GeNcert",
+    demo: "https://gencerty.netlify.app/",
+    featured: true,
+  },
+  {
     title: "MiMacademy",
     description:
       "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
@@ -47,35 +81,40 @@ const PROJECTS = [
     featured: true,
   },
   {
-    title: "EduVerse",
-    description:
-      "My ERP system is a full-stack web application built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
-    image: "/assets/images/EduVerse.png",
-    tech: ["Python", "Django", "REST API", "React", "Tailwind"],
-    github: "https://github.com/Krishnarajan7/EduVerse",
-    demo: "https://edunex.org",
-    featured: true,
-  },
-  {
-    title: "Grovvest Academy",
+    title: "Growvest Academy",
     description:
       "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL. Includes payment gateway integration for premium content.",
     image: "/assets/images/grovvest.png",
-    tech: [
-      "Node.js",
-      "Express.js",
-      "React",
-      "Tailwind",
-      "JavaScript",
-      "Postgres",
-    ],
+    tech: ["React", "Tailwind", "HTML", "JavaScript"],
     github: "https://github.com/Krishnarajan7/grow_with_25",
-    demo: "https://growvestaca.netlify.app/",
+    demo: "https://growvestaca.in/",
+    featured: true,
+  },
+  
+  {
+    title: "RightChoice Trust",
+    description:
+      "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
+    image: "/assets/images/Rightchoice.png",
+    tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
+    github: "https://github.com/Krishnarajan7/RightChoice-Trust",
+    demo: "https://rightchoicetrust.com/",
+    featured: true,
+  },
+
+  {
+    title: "Vedha Clothing",
+    description:
+      "Vedha Clothing is a modern e-commerce platform crafted to showcase timeless Indian fashion. Built using responsive web technologies like HTML5, CSS3, JavaScript.",
+    image: "/assets/images/Vedhaclothing.png",
+    tech: ["Node.js", "React", "JavaScript", "Tailwind CSS", "MongoDB"],
+    github: "https://github.com/Krishnarajan7/Client-Website-1",
+    demo: "https://vedhaclothing.in/",
     featured: true,
   },
 ];
 
-const ProjectCard = ({ project, isDarkMode }) => {
+const ProjectCard = ({ project }) => {
   const isMobile = useIsMobile();
 
   return (
@@ -110,7 +149,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
             <div className="absolute top-3 left-3">
               <div className="relative">
                 <div className="absolute inset-0 bg-space-accent/30 blur-md rounded-full animate-pulse-glow"></div>
-                <Badge className="relative flex items-center gap-1 bg-space-accent/90 text-white border-none px-3 py-1 rounded-full font-medium shadow-lg">
+                <Badge className="relative flex items-center gap-1 bg-space-accent text-white border-none px-3 py-1 rounded-full font-medium shadow-lg">
                   <Star className="w-3 h-3" fill="currentColor" />
                   Featured
                 </Badge>
@@ -123,7 +162,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full backdrop-blur-md bg-space-dark/80 text-white border border-space-accent/30 hover:bg-space-accent hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
+              className="group/btn p-2.5 rounded-full backdrop-blur-md bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white border border-gray-300/80 dark:border-space-accent/30 hover:bg-space-accent hover:text-white hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
               aria-label={`View ${project.title} source code on GitHub`}
             >
               <Github className="w-4 h-4" />
@@ -132,7 +171,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full backdrop-blur-md bg-space-dark/80 text-white border border-space-accent/30 hover:bg-space-accent hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
+              className="group/btn p-2.5 rounded-full backdrop-blur-md bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white border border-gray-300/80 dark:border-space-accent/30 hover:bg-space-accent hover:text-white hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
               aria-label={`View ${project.title} live demo`}
             >
               <ArrowUpRight className="w-4 h-4" />
@@ -142,10 +181,10 @@ const ProjectCard = ({ project, isDarkMode }) => {
 
         <div className="p-6 space-y-4">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-white group-hover:text-gradient transition-all duration-300">
+            <h3 className="text-xl font-bold text-gray-500 dark:text-white group-hover:text-gradient transition-all duration-300">
               {project.title}
             </h3>
-            <p className="text-white/80 text-sm leading-relaxed line-clamp-3">
+            <p className=" dark:text-white/80 text-sm leading-relaxed line-clamp-3">
               {project.description}
             </p>
           </div>
@@ -171,13 +210,14 @@ const ProjectCard = ({ project, isDarkMode }) => {
       {/* Floating particles effect */}
       <div className="absolute top-4 left-4 w-1 h-1 bg-space-accent rounded-full opacity-40 animate-twinkle"></div>
       <div className="absolute bottom-8 right-8 w-1.5 h-1.5 bg-space-nebula rounded-full opacity-30 animate-twinkle-slow"></div>
-      <div className="absolute top-1/2 left-8 w-0.5 h-0.5 bg-white rounded-full opacity-50 animate-twinkle-fast"></div>
+      <div className="absolute top-1/2 left-8 w-0.5 h-0.5 bg-gray-400 dark:bg-white rounded-full opacity-50 animate-twinkle-fast"></div>
     </div>
   );
 };
 
 const Projects = ({ isDarkMode }) => {
   const [visibleCount, setVisibleCount] = useState(6);
+  const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
   const hasMoreProjects = visibleCount < PROJECTS.length;
   const isMobile = useIsMobile();
 
@@ -185,6 +225,14 @@ const Projects = ({ isDarkMode }) => {
     setVisibleCount((prev) =>
       Math.min(prev + (isMobile ? 2 : 3), PROJECTS.length)
     );
+  };
+
+  const handleCarouselScroll = (e) => {
+    const container = e.target;
+    const cardWidth = 300 + 24;
+    const scrollLeft = container.scrollLeft;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveCarouselIndex(index);
   };
 
   return (
@@ -201,6 +249,7 @@ const Projects = ({ isDarkMode }) => {
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4 scrollbar-hide"
               style={{ scrollBehavior: "smooth" }}
               aria-label="Projects carousel"
+              onScroll={handleCarouselScroll}
             >
               {PROJECTS.map((project, idx) => (
                 <div
@@ -211,14 +260,39 @@ const Projects = ({ isDarkMode }) => {
                 </div>
               ))}
             </div>
-            {/* Scroll indicators */}
-            <div className="flex justify-center mt-4 gap-1">
-              {PROJECTS.slice(0, Math.min(PROJECTS.length, 5)).map((_, idx) => (
+
+            {/* Enhanced carousel indicators */}
+            <div className="flex justify-center mt-6 gap-2">
+              {PROJECTS.map((_, idx) => (
                 <div
                   key={idx}
-                  className="w-2 h-2 rounded-full bg-space-accent/30"
+                  className={`transition-all duration-300 rounded-full ${
+                    idx === activeCarouselIndex
+                      ? "w-8 h-3 bg-space-accent shadow-lg"
+                      : "w-3 h-3 bg-gray-400 dark:bg-space-accent/30 hover:bg-space-accent/60"
+                  }`}
                 ></div>
               ))}
+            </div>
+
+            {/* Swipe hint */}
+            <div className="text-center mt-3">
+              <p className="text-xs text-gray-500 dark:text-white/50 flex items-center justify-center gap-1">
+                <span>Swipe to explore</span>
+                <svg
+                  className="w-4 h-4 animate-bounce"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </p>
             </div>
           </div>
         ) : (
@@ -233,76 +307,94 @@ const Projects = ({ isDarkMode }) => {
           <div className="mt-10 sm:mt-12 text-center">
             <button
               onClick={loadMore}
-              className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg border border-primary/30 text-foreground transition-colors hover:bg-primary/10 hover:shadow"
+              className="group px-6 py-3 rounded-lg bg-space-accent/10 dark:bg-space-accent/10 border border-space-accent/30 text-space-accent hover:bg-space-accent hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 font-medium"
             >
-              Load More Projects
+              <span className="flex items-center gap-2">
+                Load More Projects
+                <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
+              </span>
             </button>
           </div>
         )}
 
-        {/* Profile links - enhanced hover effects */}
-        <div className="mt-16 sm:mt-20 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-white-200">
-            Check Out My Profiles
-          </h3>
+        {/* Enhanced Profile links section */}
+        <div className="mt-20 sm:mt-24">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-gradient">
+              Check Out My Profiles
+            </h3>
+            <p className="text-gray-500 dark:text-white/70 max-w-md mx-auto">
+              Connect with me across different platforms and explore my coding
+              journey
+            </p>
+          </div>
+
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <a
               href="https://github.com/Krishnarajan7"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="group flex items-center gap-3 px-6 py-4 rounded-xl cosmic-card border border-space-accent/20 hover:border-space-accent/40 transition-all duration-300 hover:scale-105"
             >
-              <Github className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
-              <span className="text-sm sm:text-base">GitHub</span>
+              <div className="p-2 rounded-lg bg-space-accent/10 group-hover:bg-space-accent/20 transition-colors">
+                <Github className="w-5 h-5 text-space-accent" />
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="font-semibold text-gray-500  dark:text-white">
+                  GitHub
+                </span>
+                <span className="text-xs  dark:text-white/80">
+                  View my repositories
+                </span>
+              </div>
             </a>
+
             <a
               href="https://leetcode.com/u/KrishCodes7/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="group flex items-center gap-3 px-6 py-4 rounded-xl cosmic-card border border-space-nebula/20 hover:border-space-nebula/40 transition-all duration-300 hover:scale-105"
             >
-              <Code className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
-              <span className="text-sm sm:text-base">LeetCode</span>
+              <div className="p-2 rounded-lg bg-space-nebula/10 group-hover:bg-space-nebula/20 transition-colors">
+                <Code className="w-5 h-5 text-space-nebula" />
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="font-semibold text-orange-500 dark:text-white">
+                  LeetCode
+                </span>
+                <span className="text-xs  dark:text-white/80">
+                  Coding challenges
+                </span>
+              </div>
             </a>
+
             <a
               href="https://www.linkedin.com/in/krishnarajan007"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border border-border bg-card text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="group flex items-center gap-3 px-6 py-4 rounded-xl cosmic-card border border-space-accent/20 hover:border-space-accent/40 transition-all duration-300 hover:scale-105"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-foreground w-4 h-4 sm:w-5 sm:h-5"
-              >
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              <span className="text-sm sm:text-base">LinkedIn</span>
+              <div className="p-2 rounded-lg bg-gradient-to-br from-space-accent/10 to-space-nebula/10 group-hover:from-space-accent/20 group-hover:to-space-nebula/20 transition-all duration-300">
+                <svg
+                  className="w-5 h-5 text-space-accent"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="font-semibold text-blue-500 dark:text-white">
+                  LinkedIn
+                </span>
+                <span className="text-xs  dark:text-white/80">
+                  Professional network
+                </span>
+              </div>
             </a>
           </div>
         </div>
       </div>
-
-      {/* Enhanced CSS for gradient animation */}
-      <style jsx>{`
-        @keyframes gradient-slide {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 200% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 };

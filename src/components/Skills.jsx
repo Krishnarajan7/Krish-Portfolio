@@ -210,12 +210,14 @@ const Skills = ({ isDarkMode }) => {
                 "Next.js",
                 "Express",
                 "JWT",
+                "OAuth",
                 "Firebase",
                 "Azure",
                 "Responsive Design",
                 "Accessibility",
                 "SASS",
                 "Performance Optimization",
+                "Render",
                 "Netlify"
               ].map((tech, idx) => (
                 <span
