@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Github, ArrowUpRight, Star, Code } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { Github, ArrowUpRight, Star, Code, ChevronLeft, ChevronRight } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -134,8 +134,9 @@ const ProjectCard = ({ project }) => {
               loading="lazy"
               className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
               onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = `https://placehold.co/800x450/0F1729/9b87f5?text=${encodeURIComponent(
+                const target = e.target ;
+                target.onerror = null;
+                target.src = `https://placehold.co/800x450/0F1729/9b87f5?text=${encodeURIComponent(
                   project.title.replace(" ", "+")
                 )}`;
               }}
@@ -217,22 +218,67 @@ const ProjectCard = ({ project }) => {
 
 const Projects = ({ isDarkMode }) => {
   const [visibleCount, setVisibleCount] = useState(6);
-  const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef(null);
   const hasMoreProjects = visibleCount < PROJECTS.length;
   const isMobile = useIsMobile();
+
+  // Calculate card width including gap
+  const getCardWidth = () => {
+    if (!carouselRef.current) return 324; // 300px + 24px gap
+    const container = carouselRef.current;
+    const containerWidth = container.clientWidth;
+    return Math.min(350, containerWidth * 0.85) + 24; // responsive width + gap
+  };
+
+  const scrollToIndex = (index) => {
+    if (!carouselRef.current) return;
+    
+    const cardWidth = getCardWidth();
+    const scrollLeft = index * cardWidth;
+    
+    carouselRef.current.scrollTo({
+      left: scrollLeft,
+      behavior: 'smooth'
+    });
+    setCurrentIndex(index);
+  };
+
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+    
+    const container = carouselRef.current;
+    const cardWidth = getCardWidth();
+    const scrollLeft = container.scrollLeft;
+    const newIndex = Math.round(scrollLeft / cardWidth);
+    
+    if (newIndex !== currentIndex) {
+      setCurrentIndex(Math.min(newIndex, PROJECTS.length - 1));
+    }
+  };
+
+  const nextProject = () => {
+    const nextIndex = Math.min(currentIndex + 1, PROJECTS.length - 1);
+    scrollToIndex(nextIndex);
+  };
+
+  const prevProject = () => {
+    const prevIndex = Math.max(currentIndex - 1, 0);
+    scrollToIndex(prevIndex);
+  };
+
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll, { passive: true });
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, [currentIndex]);
 
   const loadMore = () => {
     setVisibleCount((prev) =>
       Math.min(prev + (isMobile ? 2 : 3), PROJECTS.length)
     );
-  };
-
-  const handleCarouselScroll = (e) => {
-    const container = e.target;
-    const cardWidth = 300 + 24;
-    const scrollLeft = container.scrollLeft;
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveCarouselIndex(index);
   };
 
   return (
@@ -245,54 +291,92 @@ const Projects = ({ isDarkMode }) => {
 
         {isMobile ? (
           <div className="relative">
+            {/* Navigation arrows */}
+            <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 flex justify-between items-center z-10 pointer-events-none">
+              <button
+                onClick={prevProject}
+                disabled={currentIndex === 0}
+                className={`pointer-events-auto p-2 rounded-full backdrop-blur-md transition-all duration-300 ${
+                  currentIndex === 0
+                    ? 'bg-white/30 text-gray-400 cursor-not-allowed'
+                    : 'bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white hover:bg-space-accent hover:text-white hover:scale-110 shadow-lg'
+                }`}
+                aria-label="Previous project"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              
+              <button
+                onClick={nextProject}
+                disabled={currentIndex >= PROJECTS.length - 1}
+                className={`pointer-events-auto p-2 rounded-full backdrop-blur-md transition-all duration-300 ${
+                  currentIndex >= PROJECTS.length - 1
+                    ? 'bg-white/30 text-gray-400 cursor-not-allowed'
+                    : 'bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white hover:bg-space-accent hover:text-white hover:scale-110 shadow-lg'
+                }`}
+                aria-label="Next project"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
             <div
+              ref={carouselRef}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4 scrollbar-hide"
-              style={{ scrollBehavior: "smooth" }}
+              style={{ 
+                scrollBehavior: "smooth",
+                scrollSnapType: "x mandatory"
+              }}
               aria-label="Projects carousel"
-              onScroll={handleCarouselScroll}
             >
               {PROJECTS.map((project, idx) => (
                 <div
                   key={idx}
-                  className="min-w-[300px] w-[85%] max-w-[350px] snap-center flex-shrink-0"
+                  className="min-w-[300px] w-[85%] max-w-[350px] snap-center snap-always flex-shrink-0"
                 >
                   <ProjectCard project={project} />
                 </div>
               ))}
             </div>
 
-            {/* Enhanced carousel indicators */}
-            <div className="flex justify-center mt-6 gap-2">
+            {/* Enhanced clickable carousel indicators */}
+            <div className="flex justify-center mt-6 gap-2 px-4">
               {PROJECTS.map((_, idx) => (
-                <div
+                <button
                   key={idx}
-                  className={`transition-all duration-300 rounded-full ${
-                    idx === activeCarouselIndex
-                      ? "w-8 h-3 bg-space-accent shadow-lg"
-                      : "w-3 h-3 bg-gray-400 dark:bg-space-accent/30 hover:bg-space-accent/60"
+                  onClick={() => scrollToIndex(idx)}
+                  className={`transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-space-accent/50 ${
+                    idx === currentIndex
+                      ? "w-8 h-3 bg-space-accent shadow-lg shadow-space-accent/30"
+                      : "w-3 h-3 bg-gray-400 dark:bg-space-accent/30 hover:bg-space-accent/60 hover:scale-110"
                   }`}
-                ></div>
+                  aria-label={`Go to project ${idx + 1}`}
+                />
               ))}
             </div>
 
-            {/* Swipe hint */}
+            {/* Enhanced swipe hint with project counter */}
             <div className="text-center mt-3">
-              <p className="text-xs text-gray-500 dark:text-white/50 flex items-center justify-center gap-1">
-                <span>Swipe to explore</span>
-                <svg
-                  className="w-4 h-4 animate-bounce"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </p>
+              <div className="flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-white/50">
+                <span>{currentIndex + 1} of {PROJECTS.length}</span>
+                <span>•</span>
+                <span className="flex items-center gap-1">
+                  Swipe to explore
+                  <svg
+                    className="w-4 h-4 animate-pulse"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+              </div>
             </div>
           </div>
         ) : (
