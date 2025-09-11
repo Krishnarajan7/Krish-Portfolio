@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Github, ArrowUpRight, Star, Code, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Github,
+  ArrowUpRight,
+  Star,
+  Code,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +15,16 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PROJECTS = [
   {
+    title: "MiMacademy",
+    description:
+      "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
+    image: "/assets/images/MiMacademy.png",
+    tech: ["HTML5", "React", "Tailwind", "JavaScript", "CSS3"],
+    github: "https://github.com/Krishnarajan7/MiMacademy",
+    demo: "https://mimacademy.org",
+    featured: true,
+  },
+  {
     title: "EduVerse",
     description:
       "My ERP system is a full-stack web application built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
@@ -15,6 +32,16 @@ const PROJECTS = [
     tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/Krishnarajan7/EduVerse",
     demo: "https://eduverse-erp.netlify.app/",
+    featured: true,
+  },
+  {
+    title: "Growvest Academy",
+    description:
+      "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL. Includes payment gateway integration for premium content.",
+    image: "/assets/images/grovvest.png",
+    tech: ["React", "Tailwind", "HTML", "JavaScript"],
+    github: "https://github.com/Krishnarajan7/grow_with_25",
+    demo: "https://growvestaca.in/",
     featured: true,
   },
   {
@@ -51,6 +78,24 @@ const PROJECTS = [
     featured: true,
   },
   {
+    title: "CareerGuide",
+    description:
+      "A career development platform offering placements, career guidance, and courses. Built with React and Express.js, it integrates OAuth authentication and modern backend technologies to provide a secure and seamless user experience.",
+    image: "/assets/images/career.png",
+    tech: [
+      "React",
+      "Express.js",
+      "Node.js",
+      "OAuth",
+      "REST APIs",
+      "JWT",
+      "PostgresSQL",
+    ],
+    github: "https://github.com/Krishnarajan7/CareerGuide", 
+    demo: "https://careerguide-ai.netlify.app/", 
+    featured: true,
+  },
+  {
     title: "GeNcert",
     description:
       "GenCert is a lightweight web tool for instantly creating professional training or achievement certificates with customizable templates. It supports bulk data import, QR code verification, and a mobile-friendly interface—making certificate creation simple and fast for educators, event organizers, and businesses.",
@@ -70,27 +115,7 @@ const PROJECTS = [
     demo: "https://gencerty.netlify.app/",
     featured: true,
   },
-  {
-    title: "MiMacademy",
-    description:
-      "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
-    image: "/assets/images/MiMacademy.png",
-    tech: ["HTML5", "React", "Tailwind", "JavaScript", "CSS3"],
-    github: "https://github.com/Krishnarajan7/MiMacademy",
-    demo: "https://mimacademy.org",
-    featured: true,
-  },
-  {
-    title: "Growvest Academy",
-    description:
-      "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL. Includes payment gateway integration for premium content.",
-    image: "/assets/images/grovvest.png",
-    tech: ["React", "Tailwind", "HTML", "JavaScript"],
-    github: "https://github.com/Krishnarajan7/grow_with_25",
-    demo: "https://growvestaca.in/",
-    featured: true,
-  },
-  
+
   {
     title: "RightChoice Trust",
     description:
@@ -134,7 +159,7 @@ const ProjectCard = ({ project }) => {
               loading="lazy"
               className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
               onError={(e) => {
-                const target = e.target ;
+                const target = e.target;
                 target.onerror = null;
                 target.src = `https://placehold.co/800x450/0F1729/9b87f5?text=${encodeURIComponent(
                   project.title.replace(" ", "+")
@@ -233,25 +258,25 @@ const Projects = ({ isDarkMode }) => {
 
   const scrollToIndex = (index) => {
     if (!carouselRef.current) return;
-    
+
     const cardWidth = getCardWidth();
     const scrollLeft = index * cardWidth;
-    
+
     carouselRef.current.scrollTo({
       left: scrollLeft,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
     setCurrentIndex(index);
   };
 
   const handleScroll = () => {
     if (!carouselRef.current) return;
-    
+
     const container = carouselRef.current;
     const cardWidth = getCardWidth();
     const scrollLeft = container.scrollLeft;
     const newIndex = Math.round(scrollLeft / cardWidth);
-    
+
     if (newIndex !== currentIndex) {
       setCurrentIndex(Math.min(newIndex, PROJECTS.length - 1));
     }
@@ -270,8 +295,8 @@ const Projects = ({ isDarkMode }) => {
   useEffect(() => {
     const container = carouselRef.current;
     if (container) {
-      container.addEventListener('scroll', handleScroll, { passive: true });
-      return () => container.removeEventListener('scroll', handleScroll);
+      container.addEventListener("scroll", handleScroll, { passive: true });
+      return () => container.removeEventListener("scroll", handleScroll);
     }
   }, [currentIndex]);
 
@@ -298,21 +323,21 @@ const Projects = ({ isDarkMode }) => {
                 disabled={currentIndex === 0}
                 className={`pointer-events-auto p-2 rounded-full backdrop-blur-md transition-all duration-300 ${
                   currentIndex === 0
-                    ? 'bg-white/30 text-gray-400 cursor-not-allowed'
-                    : 'bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white hover:bg-space-accent hover:text-white hover:scale-110 shadow-lg'
+                    ? "bg-white/30 text-gray-400 cursor-not-allowed"
+                    : "bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white hover:bg-space-accent hover:text-white hover:scale-110 shadow-lg"
                 }`}
                 aria-label="Previous project"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              
+
               <button
                 onClick={nextProject}
                 disabled={currentIndex >= PROJECTS.length - 1}
                 className={`pointer-events-auto p-2 rounded-full backdrop-blur-md transition-all duration-300 ${
                   currentIndex >= PROJECTS.length - 1
-                    ? 'bg-white/30 text-gray-400 cursor-not-allowed'
-                    : 'bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white hover:bg-space-accent hover:text-white hover:scale-110 shadow-lg'
+                    ? "bg-white/30 text-gray-400 cursor-not-allowed"
+                    : "bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white hover:bg-space-accent hover:text-white hover:scale-110 shadow-lg"
                 }`}
                 aria-label="Next project"
               >
@@ -323,9 +348,9 @@ const Projects = ({ isDarkMode }) => {
             <div
               ref={carouselRef}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4 scrollbar-hide"
-              style={{ 
+              style={{
                 scrollBehavior: "smooth",
-                scrollSnapType: "x mandatory"
+                scrollSnapType: "x mandatory",
               }}
               aria-label="Projects carousel"
             >
@@ -358,7 +383,9 @@ const Projects = ({ isDarkMode }) => {
             {/* Enhanced swipe hint with project counter */}
             <div className="text-center mt-3">
               <div className="flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-white/50">
-                <span>{currentIndex + 1} of {PROJECTS.length}</span>
+                <span>
+                  {currentIndex + 1} of {PROJECTS.length}
+                </span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
                   Swipe to explore
