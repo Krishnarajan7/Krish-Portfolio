@@ -455,7 +455,7 @@ const Projects = ({ isDarkMode }) => {
                   GitHub
                 </span>
                 <span className="text-xs  dark:text-white/80">
-                  View my repositories
+                  Explore the Repo Galaxy
                 </span>
               </div>
             </a>
@@ -474,7 +474,7 @@ const Projects = ({ isDarkMode }) => {
                   LeetCode
                 </span>
                 <span className="text-xs  dark:text-white/80">
-                  Coding challenges
+                  Dive Into Code Mania
                 </span>
               </div>
             </a>
@@ -499,7 +499,7 @@ const Projects = ({ isDarkMode }) => {
                   LinkedIn
                 </span>
                 <span className="text-xs  dark:text-white/80">
-                  Professional network
+                  Connect & Collaborate
                 </span>
               </div>
             </a>

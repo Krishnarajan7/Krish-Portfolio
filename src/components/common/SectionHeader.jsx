@@ -65,7 +65,7 @@ const SectionHeader = ({ title, subtitle }) => {
 
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gradient relative">
         {title}
-        <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-space-accent to-space-nebula w-0 group-hover:w-full transition-all duration-700 rounded-full"></span>
+        
       </h2>
       <div className="mx-auto w-20 h-1 bg-gradient-to-r from-space-accent to-space-nebula rounded-full mb-6"></div>
       <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto text-lg">{subtitle}</p>
