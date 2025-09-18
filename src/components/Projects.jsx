@@ -91,8 +91,8 @@ const PROJECTS = [
       "JWT",
       "PostgresSQL",
     ],
-    github: "https://github.com/Krishnarajan7/CareerGuide", 
-    demo: "https://careerguide-ai.netlify.app/", 
+    github: "https://github.com/Krishnarajan7/CareerGuide",
+    demo: "https://careerguide-ai.netlify.app/",
     featured: true,
   },
   {
@@ -113,6 +113,16 @@ const PROJECTS = [
     ],
     github: "https://github.com/Krishnarajan7/GeNcert",
     demo: "https://gencerty.netlify.app/",
+    featured: true,
+  },
+  {
+    title: "Phoenix Data Consulting",
+    description:
+      "Phoenix Data Consulting is a Next Gen IT solutions provider, built with React, Tailwind CSS, and Shadcn UI to deliver a modern, responsive, and accessible web experience.",
+    image: "/assets/images/phoenix.png",
+    tech: ["React", "JavasScript", "Tailwind CSS", "Shadcn UI"],
+    github: "https://github.com/Krishnarajan7/PhoenixDataConsulting",
+    demo: "https://phoenixdata.netlify.app/",
     featured: true,
   },
 
