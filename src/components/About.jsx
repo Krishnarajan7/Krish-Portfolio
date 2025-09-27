@@ -268,9 +268,9 @@ const About = ({ isDarkMode }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="cosmic-card p-4 text-center">
                   <div className="text-2xl font-bold text-space-accent mb-1">
-                    1+
+                    2+
                   </div>
-                  <div className="text-white/60 text-sm">Years Experience</div>
+                  <div className="text-white/60 text-sm">Freelance Experience</div>
                 </div>
                 <div className="cosmic-card p-4 text-center">
                   <div className="text-2xl font-bold text-space-accent mb-1">

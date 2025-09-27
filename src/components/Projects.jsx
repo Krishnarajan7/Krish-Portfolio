@@ -45,6 +45,26 @@ const PROJECTS = [
     featured: true,
   },
   {
+    title: "Phoenix Data Consulting",
+    description:
+      "Phoenix Data Consulting is a Next Gen IT solutions provider, built with React, Tailwind CSS, and Shadcn UI to deliver a modern, responsive, and accessible web experience.",
+    image: "/assets/images/phoenix.png",
+    tech: ["React", "JavasScript", "Tailwind CSS", "Shadcn UI"],
+    github: "https://github.com/Krishnarajan7/PhoenixDataConsulting",
+    demo: "https://phoenixdataconsulting.in/",
+    featured: true,
+  },
+  {
+    title: "Space Porfolio",
+    description:
+      "My personal portfolio is built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design. It highlights my projects and skills with responsive UI, smooth animations, and a modern, cosmic aesthetic.",
+    image: "/assets/images/Portfolio.png",
+    tech: ["React", "Tailwind CSS", "JavaScript", "React Router"],
+    github: "https://github.com/Krishnarajan7/Krish-Portfolio",
+    demo: "https://krish-dev-portfolio.netlify.app/",
+    featured: true,
+  },
+  {
     title: "HalleyShop",
     description:
       "HalleyShop is a modern e-commerce platform with role-based access for customers and admins, secure authentication, and customer management. Built with Node.js, Express, Prisma, and JWT, it delivers scalable, API-driven architecture with strong validation and permissions.",
@@ -68,16 +88,6 @@ const PROJECTS = [
     featured: true,
   },
   {
-    title: "Space Porfolio",
-    description:
-      "My personal portfolio is built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design. It highlights my projects and skills with responsive UI, smooth animations, and a modern, cosmic aesthetic.",
-    image: "/assets/images/Portfolio.png",
-    tech: ["React", "Tailwind CSS", "JavaScript", "React Router"],
-    github: "https://github.com/Krishnarajan7/Krish-Portfolio",
-    demo: "https://krish-dev-portfolio.netlify.app/",
-    featured: true,
-  },
-  {
     title: "CareerGuide",
     description:
       "A career development platform offering placements, career guidance, and courses. Built with React and Express.js, it integrates OAuth authentication and modern backend technologies to provide a secure and seamless user experience.",
@@ -93,6 +103,16 @@ const PROJECTS = [
     ],
     github: "https://github.com/Krishnarajan7/CareerGuide",
     demo: "https://careerguide-ai.netlify.app/",
+    featured: true,
+  },
+  {
+    title: "RightChoice Trust",
+    description:
+      "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
+    image: "/assets/images/Rightchoice.png",
+    tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
+    github: "https://github.com/Krishnarajan7/RightChoice-Trust",
+    demo: "https://rightchoicetrust.com/",
     featured: true,
   },
   {
@@ -115,28 +135,6 @@ const PROJECTS = [
     demo: "https://gencerty.netlify.app/",
     featured: true,
   },
-  {
-    title: "Phoenix Data Consulting",
-    description:
-      "Phoenix Data Consulting is a Next Gen IT solutions provider, built with React, Tailwind CSS, and Shadcn UI to deliver a modern, responsive, and accessible web experience.",
-    image: "/assets/images/phoenix.png",
-    tech: ["React", "JavasScript", "Tailwind CSS", "Shadcn UI"],
-    github: "https://github.com/Krishnarajan7/PhoenixDataConsulting",
-    demo: "https://phoenixdata.netlify.app/",
-    featured: true,
-  },
-
-  {
-    title: "RightChoice Trust",
-    description:
-      "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
-    image: "/assets/images/Rightchoice.png",
-    tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
-    github: "https://github.com/Krishnarajan7/RightChoice-Trust",
-    demo: "https://rightchoicetrust.com/",
-    featured: true,
-  },
-
   {
     title: "Vedha Clothing",
     description:
