@@ -12,6 +12,7 @@ import {
   GraduationCap,
   Briefcase,
   Trophy,
+  Building,
 } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
@@ -77,13 +78,22 @@ const About = ({ isDarkMode }) => {
       color: "from-orange-500 to-red-500",
     },
     {
-      year: "2025",
+      year: "July - 2025",
       title: "Ten Freelance Projects",
       description:
         "Successfully completed 10+ freelance projects, including a website for an international client.",
       icon: Briefcase,
       color: "from-green-500 to-emerald-500",
     },
+    {
+  year: "October - 2025",
+  title: "Full-Stack Developer Intern",
+  description:
+    "Joined Krafzen as a Full-Stack Developer Intern, contributing to the development of a scalable SaaS platform with backend (REST/GraphQL, CRUD, authentication) and frontend integration. Working on cloud storage integration, API development, and multi-user/project support.",
+  icon: Building,
+  color: "from-yellow-400 to-yellow-600",
+}
+
   ];
 
   return (

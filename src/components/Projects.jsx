@@ -88,7 +88,7 @@ const PROJECTS = [
     featured: true,
   },
   {
-    title: "CareerGuide",
+    title: "P2P Career Guidnce",
     description:
       "A career development platform offering placements, career guidance, and courses. Built with React and Express.js, it integrates OAuth authentication and modern backend technologies to provide a secure and seamless user experience.",
     image: "/assets/images/career.png",
@@ -102,7 +102,7 @@ const PROJECTS = [
       "PostgresSQL",
     ],
     github: "https://github.com/Krishnarajan7/CareerGuide",
-    demo: "https://careerguide-ai.netlify.app/",
+    demo: "https://p2pcareerguidance.netlify.app/",
     featured: true,
   },
   {
