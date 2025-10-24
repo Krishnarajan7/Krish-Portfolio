@@ -101,8 +101,8 @@ const PROJECTS = [
       "JWT",
       "PostgresSQL",
     ],
-    github: "https://github.com/Krishnarajan7/CareerGuide",
-    demo: "https://p2pcareerguidance.netlify.app/",
+    // github: "https://github.com/Krishnarajan7/CareerGuide",
+    demo: "https://p2pcareerguidance.com",
     featured: true,
   },
   {
