@@ -53,48 +53,56 @@ const About = ({ isDarkMode }) => {
   }, []);
 
   const timelineEvents = [
-    {
-      year: "2022",
-      title: "Began Programming Journey",
-      description:
-        "Started learning programming fundamentals using Python, C, and C++.",
-      icon: Code,
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      year: "2023",
-      title: "Focused on Problem Solving and DSA",
-      description:
-        "Sharpened algorithmic thinking and data structure knowledge through competitive programming and online challenges.",
-      icon: Rocket,
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      year: "2024",
-      title: "Delivered First Freelance Project",
-      description:
-        "Developed and deployed a website for Vedha Clothing — marking the beginning of my freelance journey.",
-      icon: Trophy,
-      color: "from-orange-500 to-red-500",
-    },
-    {
-      year: "July - 2025",
-      title: "Ten Freelance Projects",
-      description:
-        "Successfully completed 10+ freelance projects, including a website for an international client.",
-      icon: Briefcase,
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-  year: "October - 2025",
-  title: "Full-Stack Developer Intern",
-  description:
-    "Joined Krafzen as a Full-Stack Developer Intern, contributing to the development of a scalable SaaS platform with backend (REST/GraphQL, CRUD, authentication) and frontend integration. Working on cloud storage integration, API development, and multi-user/project support.",
-  icon: Building,
-  color: "from-yellow-400 to-yellow-600",
-}
+  {
+    year: "2022",
+    title: "Began Programming Journey",
+    description:
+      "Started learning programming fundamentals using Python, C, and C++.",
+    icon: Code,
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    year: "2023",
+    title: "Focused on Problem Solving and DSA",
+    description:
+      "Sharpened algorithmic thinking and data structure knowledge through competitive programming and online challenges.",
+    icon: Rocket,
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    year: "2024",
+    title: "Delivered First Freelance Project",
+    description:
+      "Developed and deployed a website for Vedha Clothing — marking the beginning of my freelance journey.",
+    icon: Trophy,
+    color: "from-orange-500 to-red-500",
+  },
+  {
+    year: "February 2025",
+    title: "Internship at ISRO Propulsion Complex",
+    description:
+      "Completed an internship at ISRO Propulsion Complex Mahendragiri (Thirunelveli), gaining hands-on experience in propulsion systems testing, engine integration and verification for launch-vehicle stages.",
+    icon: Building,
+    color: "from-teal-500 to-green-500",
+  },
+  {
+    year: "July – 2025",
+    title: "Ten Freelance Projects",
+    description:
+      "Successfully completed 10+ freelance projects, including a website for an international client.",
+    icon: Briefcase,
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    year: "October – 2025",
+    title: "Full-Stack Developer Intern",
+    description:
+      "Joined Krafzen as a Full-Stack Developer Intern, contributing to the development of a scalable SaaS platform with backend (REST/GraphQL, CRUD, authentication) and frontend integration. Working on cloud storage integration, API development, and multi-user/project support.",
+    icon: Building,
+    color: "from-yellow-400 to-yellow-600",
+  }
+];
 
-  ];
 
   return (
     <section id="about" className="py-16 sm:py-20">
