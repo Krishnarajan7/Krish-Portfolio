@@ -21,6 +21,7 @@
     "framer-motion": "^12.23.1",
     "lovable-tagger": "^1.1.8",
     "lucide-react": "^0.511.0",
+    "motion": "^12.23.24",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "react-router-dom": "^7.6.1",

@@ -1,33 +1,15 @@
-import React from "react";
-import { ArrowUp } from "lucide-react";
+import React from 'react';
+import { TextHoverEffect } from "@/components/ui/hover-footer";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <footer className="bg-space-darker py-8 border-t border-white/5">
-      <div className="space-container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <p className="text-white/70 text-center md:text-left">
-              © {new Date().getFullYear()} Krishnarajan – Exploring Code &
-              Cosmos 🌌
-            </p>
-          </div>
-
-          <button
-            className="p-3 rounded-full bg-space-accent/10 hover:bg-space-accent/20 transition-colors group"
-            onClick={scrollToTop}
-            aria-label="Back to top"
-          >
-            <ArrowUp className="h-5 w-5 text-space-accent group-hover:-translate-y-1 transition-transform" />
-          </button>
-        </div>
+    <footer className="relative h-[200px] md:h-[400px] overflow-hidden flex items-end">
+      {/* Text hover effect and copyright */}
+      <div className="flex flex-col h-[180px] md:h-[450px] w-full items-center justify-end pb-4 px-4">
+        <TextHoverEffect text="KRISH" className="z-50" />
+        <p className="text-white/80 text-xs md:text-sm text-center">
+          &copy; 2025 Krishnarajan. All rights reserved 🤍
+        </p>
       </div>
     </footer>
   );

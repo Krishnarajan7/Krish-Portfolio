@@ -85,7 +85,7 @@ const Navbar = ({ isDarkMode }) => {
               </div>
             </div>
             <span className={`text-sm sm:text-lg font-semibold tracking-wider ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
-              Krishna<span className="text-space-accent">rajan</span>
+              Krishna<span className="text-space-accent">Rajan</span>
             </span>
           </button>
 
