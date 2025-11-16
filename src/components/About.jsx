@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
+import { Timeline } from "./ui/timeline";
 
 const About = ({ isDarkMode }) => {
   const aboutRef = useRef(null);
@@ -53,56 +54,72 @@ const About = ({ isDarkMode }) => {
   }, []);
 
   const timelineEvents = [
-  {
-    year: "2022",
-    title: "Began Programming Journey",
-    description:
-      "Started learning programming fundamentals using Python, C, and C++.",
-    icon: Code,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    year: "2023",
-    title: "Focused on Problem Solving and DSA",
-    description:
-      "Sharpened algorithmic thinking and data structure knowledge through competitive programming and online challenges.",
-    icon: Rocket,
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    year: "2024",
-    title: "Delivered First Freelance Project",
-    description:
-      "Developed and deployed a website for Vedha Clothing — marking the beginning of my freelance journey.",
-    icon: Trophy,
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    year: "February 2025",
-    title: "Internship at ISRO Propulsion Complex",
-    description:
-      "Completed an internship at ISRO Propulsion Complex Mahendragiri (Thirunelveli), gaining hands-on experience in propulsion systems testing, engine integration and verification for launch-vehicle stages.",
-    icon: Building,
-    color: "from-teal-500 to-green-500",
-  },
-  {
-    year: "July – 2025",
-    title: "Ten Freelance Projects",
-    description:
-      "Successfully completed 10+ freelance projects, including a website for an international client.",
-    icon: Briefcase,
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    year: "October – 2025",
-    title: "Full-Stack Developer Intern",
-    description:
-      "Joined Krafzen as a Full-Stack Developer Intern, contributing to the development of a scalable SaaS platform with backend (REST/GraphQL, CRUD, authentication) and frontend integration. Working on cloud storage integration, API development, and multi-user/project support.",
-    icon: Building,
-    color: "from-yellow-400 to-yellow-600",
-  }
-];
+    {
+      year: "2022",
+      title: "Began Programming Journey",
+      description:
+        "Started learning programming fundamentals using Python, C, and C++.",
+      icon: Code,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      year: "2023",
+      title: "Focused on Problem Solving and DSA",
+      description:
+        "Sharpened algorithmic thinking and data structure knowledge through competitive programming and online challenges.",
+      icon: Rocket,
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      year: "2024",
+      title: "Delivered First Freelance Project",
+      description:
+        "Developed and deployed a website for Vedha Clothing — marking the beginning of my freelance journey.",
+      icon: Trophy,
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      year: "February 2025",
+      title: "Internship at ISRO Propulsion Complex",
+      description:
+        "Completed an internship at ISRO Propulsion Complex Mahendragiri (Thirunelveli)",
+      icon: Building,
+      color: "from-teal-500 to-green-500",
+    },
+    {
+      year: "July – 2025",
+      title: "Ten Freelance Projects",
+      description:
+        "Successfully completed 10+ freelance projects, including a website for an international client.",
+      icon: Briefcase,
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      year: "October – 2025",
+      title: "Full-Stack Developer Intern",
+      description:
+        "Joined Krafzen as a Full-Stack Developer Intern, contributing to the development of a scalable SaaS platform ",
+      icon: Building,
+      color: "from-yellow-400 to-yellow-600",
+    }
+  ];
 
+  const timelineData = timelineEvents.map((event) => ({
+    title: event.year,
+    content: (
+      <div>
+        <p className="text-white/80 text-sm md:text-lg lg:text-xl font-semibold mb-4">
+          {event.title}
+        </p>
+        <div className="mb-4">
+          <div className="flex gap-2 items-center text-white/70 text-sm md:text-base mb-2">
+            <event.icon className="w-4 h-4 md:w-5 md:h-5 text-space-accent" />
+            {event.description}
+          </div>
+        </div>
+      </div>
+    ),
+  }));
 
   return (
     <section id="about" className="py-16 sm:py-20">
@@ -363,7 +380,7 @@ const About = ({ isDarkMode }) => {
           ref={timelineRef}
           className="opacity-0 transition-opacity duration-500 mt-20"
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 pt-24">
             <div className="flex items-center justify-center gap-3 mb-4">
               <GraduationCap className="w-8 h-8 text-space-accent" />
               <h2 className="text-3xl md:text-4xl font-bold text-gradient">
@@ -376,51 +393,7 @@ const About = ({ isDarkMode }) => {
               A timeline of my growth and milestones in the world of technology
             </p>
           </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-space-accent via-space-nebula to-space-accent transform md:-translate-x-1/2"></div>
-
-            <div className="space-y-8 md:space-y-12">
-              {timelineEvents.map((event, index) => (
-                <div
-                  key={index}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-space-accent rounded-full transform -translate-x-1/2 z-10 animate-pulse-glow"></div>
-
-                  {/* Content card */}
-                  <div
-                    className={`cosmic-card p-6 ml-12 md:ml-0 md:w-5/12 ${
-                      index % 2 === 0
-                        ? "md:mr-auto md:pr-8"
-                        : "md:ml-auto md:pl-8"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div
-                        className={`w-10 h-10 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center`}
-                      >
-                        <event.icon className="w-5 h-5 text-white" />
-                      </div>
-                      <span className="text-space-accent font-bold text-lg">
-                        {event.year}
-                      </span>
-                    </div>
-                    <h3 className="text-white font-semibold text-lg mb-2">
-                      {event.title}
-                    </h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      {event.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Timeline data={timelineData} />
         </div>
       </div>
     </section>
