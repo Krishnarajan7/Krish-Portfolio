@@ -99,5 +99,5 @@ npm run preview
 This project is licensed under the [MIT License](LICENSE).
 
 
-“Exploring the code galaxy, one commit at a time.” – Krishnarajan V
+“Exploring the code galaxy” – Krishnarajan V
 
