@@ -254,15 +254,30 @@ const Hero = ({ isDarkMode }) => {
               </>
             )}
 
-            <img
-              src="/assets/images/Krish.jpg"
-              alt="Profile Pic"
-              className="w-full h-full rounded-full object-cover shadow-lg border-4 border-purple-500 animate-float"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = "/assets/images/Krish.jpg ";
-              }}
-            />
+            <picture>
+              <source 
+                srcSet="/assets/images/Krish.webp" 
+                type="image/webp" 
+              />
+              <img
+                src="/assets/images/Krish.jpg"  
+                alt="Krishnarajan profile picture"
+                className="w-full h-full rounded-full object-cover shadow-lg border-4 border-purple-500 animate-float"
+                loading="eager"
+                width="288"  
+                height="288"
+                srcSet="
+                  /assets/images/Krish-192.webp 192w,
+                  /assets/images/Krish-288.webp 288w,
+                  /assets/images/Krish-576.webp 576w
+                "
+                sizes="(max-width: 768px) 192px, (max-width: 1024px) 288px, 576px"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "/assets/images/Krish.jpg";  // Clean fallback
+                }}
+              />
+            </picture>
           </div>
         </div>
       </div>

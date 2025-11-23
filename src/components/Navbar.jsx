@@ -154,6 +154,7 @@ const Navbar = ({ isDarkMode }) => {
                 href="https://github.com/Krishnarajan7" // Replace with actual link
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub profile"
                 className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
                   isDarkMode 
                     ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
@@ -166,6 +167,7 @@ const Navbar = ({ isDarkMode }) => {
                 href="https://www.linkedin.com/in/krishnarajan007" 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
                 className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
                   isDarkMode 
                     ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
@@ -178,6 +180,7 @@ const Navbar = ({ isDarkMode }) => {
                 href="https://www.youtube.com/@KrishCodes-IO" 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="YouTube channel"
                 className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
                   isDarkMode 
                     ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
@@ -190,6 +193,7 @@ const Navbar = ({ isDarkMode }) => {
                 href="https://leetcode.com/u/KrishCodes7/" 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LeetCode profile"
                 className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
                   isDarkMode 
                     ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
