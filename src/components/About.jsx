@@ -317,7 +317,7 @@ const About = ({ isDarkMode }) => {
                 </div>
                 <div className="cosmic-card p-4 text-center">
                   <div className="text-2xl font-bold text-space-accent mb-1">
-                    25+
+                    30+
                   </div>
                   <div className="text-white/60 text-sm">
                     GitHub Repositories
