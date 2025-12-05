@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -87,24 +88,6 @@ const PROJECTS = [
     demo: "https://halleyshop.netlify.app/",
     featured: true,
   },
-  // {
-  //   title: "P2P Career Guidnce",
-  //   description:
-  //     "A career development platform offering placements, career guidance, and courses. Built with React and Express.js, it integrates OAuth authentication and modern backend technologies to provide a secure and seamless user experience.",
-  //   image: "/assets/images/career.png",
-  //   tech: [
-  //     "React",
-  //     "Express.js",
-  //     "Node.js",
-  //     "OAuth",
-  //     "REST APIs",
-  //     "JWT",
-  //     "PostgresSQL",
-  //   ],
-  //   // github: "https://github.com/Krishnarajan7/CareerGuide",
-  //   demo: "https://p2pcareerguidance.com",
-  //   featured: true,
-  // },
   {
     title: "RightChoice Trust",
     description:
@@ -417,7 +400,19 @@ const Projects = ({ isDarkMode }) => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {PROJECTS.slice(0, visibleCount).map((project, idx) => (
-              <ProjectCard key={idx} project={project} />
+              <motion.div
+                key={`${project.title}-${idx}`}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: (idx % 3) * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
           </div>
         )}
