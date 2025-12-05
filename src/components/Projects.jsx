@@ -87,24 +87,24 @@ const PROJECTS = [
     demo: "https://halleyshop.netlify.app/",
     featured: true,
   },
-  {
-    title: "P2P Career Guidnce",
-    description:
-      "A career development platform offering placements, career guidance, and courses. Built with React and Express.js, it integrates OAuth authentication and modern backend technologies to provide a secure and seamless user experience.",
-    image: "/assets/images/career.png",
-    tech: [
-      "React",
-      "Express.js",
-      "Node.js",
-      "OAuth",
-      "REST APIs",
-      "JWT",
-      "PostgresSQL",
-    ],
-    // github: "https://github.com/Krishnarajan7/CareerGuide",
-    demo: "https://p2pcareerguidance.com",
-    featured: true,
-  },
+  // {
+  //   title: "P2P Career Guidnce",
+  //   description:
+  //     "A career development platform offering placements, career guidance, and courses. Built with React and Express.js, it integrates OAuth authentication and modern backend technologies to provide a secure and seamless user experience.",
+  //   image: "/assets/images/career.png",
+  //   tech: [
+  //     "React",
+  //     "Express.js",
+  //     "Node.js",
+  //     "OAuth",
+  //     "REST APIs",
+  //     "JWT",
+  //     "PostgresSQL",
+  //   ],
+  //   // github: "https://github.com/Krishnarajan7/CareerGuide",
+  //   demo: "https://p2pcareerguidance.com",
+  //   featured: true,
+  // },
   {
     title: "RightChoice Trust",
     description:
