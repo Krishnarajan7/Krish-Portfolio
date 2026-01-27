@@ -16,13 +16,20 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PROJECTS = [
   {
-    title: "MiMacademy",
+    title: "BestPracticeWay",
     description:
-      "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
-    image: "/assets/images/MiMacademy.png",
-    tech: ["HTML5", "React", "Tailwind", "JavaScript", "CSS3"],
-    github: "https://github.com/Krishnarajan7/MiMacademy",
-    demo: "https://mimacademy.org",
+      "BestPractice Way is a full-stack English learning platform designed to improve communication skills across Speaking, Writing, Listening, Reading, and Mail-based practice modules. Built with a scalable architecture and learner-focused UX.",
+    image: "/assets/images/bestpracticeway.png",
+    tech: [
+      "React",
+      "TypeScript",
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "REST API",
+    ],
+    github: "https://github.com/Krishnarajan7/English-Learning-Platform",
+    demo: "https://bestpracticeway.com",
     featured: true,
   },
   {
@@ -33,6 +40,16 @@ const PROJECTS = [
     tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/Krishnarajan7/EduVerse",
     demo: "https://eduverse-erp.netlify.app/",
+    featured: true,
+  },
+  {
+    title: "MiMacademy",
+    description:
+      "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
+    image: "/assets/images/MiMacademy.png",
+    tech: ["HTML5", "React", "Tailwind", "JavaScript", "CSS3"],
+    github: "https://github.com/Krishnarajan7/MiMacademy",
+    demo: "https://mimacademy.org",
     featured: true,
   },
   {
@@ -96,7 +113,7 @@ const PROJECTS = [
     tech: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
     github: "https://github.com/Krishnarajan7/RightChoice-Trust",
     demo: "https://rightchoicetrust.com/",
-    featured: true,
+    featured: false,
   },
   {
     title: "GeNcert",
@@ -126,7 +143,7 @@ const PROJECTS = [
     tech: ["Node.js", "React", "JavaScript", "Tailwind CSS", "MongoDB"],
     github: "https://github.com/Krishnarajan7/Client-Website-1",
     demo: "https://vedhaclothing.in/",
-    featured: true,
+    featured: false,
   },
 ];
 
