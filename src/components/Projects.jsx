@@ -16,6 +16,59 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PROJECTS = [
   {
+  title: "Pranitha Portfolio",
+  description:
+    "Pranitha Portfolio is a space-inspired personal portfolio website developed for a client using Vite + React and Tailwind CSS. The site presents projects, skills, and experience through a modern cosmic UI, smooth animations, and a fully responsive layout designed to create a strong personal brand presence.",
+  image: "/assets/images/pranitha-portfolio.png",
+  tech: [
+    "Vite",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "HTML5",
+    "CSS3"
+  ],
+  github: "https://github.com/Krishnrajan7/pranitha-portfolio",
+  demo: "https://laxmipranitha.netlify.app/",
+  featured: true,
+}
+,
+  {
+  title: "MiM Craft Lab",
+  description:
+    "MiM Craft Lab is a custom 3D printing e-commerce platform built for a UK-based client, enabling users to order personalized products with precision and flexibility. The platform focuses on performance, scalability, and a modern shopping experience tailored for custom manufacturing workflows.",
+  image: "/assets/images/mim-craft.png",
+  tech: [
+    "React",
+    "TypeScript",
+    "PHP",
+    "Laravel",
+    "MySQL",
+    "REST API",
+    "Tailwind CSS",
+  ],
+  github: "https://github.com/Krishnarajan7/mim-craft-lab", 
+  demo: "https://mimcraftlab.co.uk", 
+  featured: true,
+},
+  {
+  title: "Astra 360",
+  description:
+    "Astra 360 is a modern digital marketing website designed to showcase end-to-end branding, marketing, and growth solutions. Built with a clean, conversion-focused UI and scalable architecture for performance and maintainability.",
+  image: "/assets/images/astra.png",
+  tech: [
+    "React",
+    "TypeScript",
+    "PHP",
+    "MySQL",
+    "REST API",
+    "Tailwind CSS",
+  ],
+  github: "https://github.com/Krishnarajan7/astra-360", 
+  demo: "https://360astra.io", 
+  featured: true,
+},
+  {
     title: "BestPracticeWay",
     description:
       "BestPractice Way is a full-stack English learning platform designed to improve communication skills across Speaking, Writing, Listening, Reading, and Mail-based practice modules. Built with a scalable architecture and learner-focused UX.",
@@ -36,7 +89,7 @@ const PROJECTS = [
     title: "EduVerse",
     description:
       "My ERP system is a full-stack web application built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
-    image: "/assets/images/EduVerse.png",
+    image: "/assets/images/eduverse.png",
     tech: ["Python", "Django", "REST API", "React", "Tailwind"],
     github: "https://github.com/Krishnarajan7/EduVerse",
     demo: "https://eduverse-erp.netlify.app/",
