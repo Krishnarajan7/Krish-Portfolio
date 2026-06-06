@@ -140,7 +140,7 @@ const Index = () => {
       <Footer isDarkMode={isDarkMode} />
 
       {/* Add some style to the scrollbar */}
-      <style jsx global>{`
+      <style>{`
         ::-webkit-scrollbar {
           width: 10px;
         }

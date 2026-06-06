@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Star } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 
 const Hero = ({ isDarkMode }) => {
@@ -105,11 +105,7 @@ const Hero = ({ isDarkMode }) => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-wide font-mono bg-transparent">
-            <span
-              className={`text-gradient ${
-                isDarkMode ? "animate-pulse-glow" : ""
-              } bg-transparent`}
-            >
+            <span className="text-gradient bg-transparent">
               {"Hey there, I'm"}
               <span className="no-wrap bg-transparent">
                 {displayedLetters.map((letter, i) => (
@@ -133,9 +129,10 @@ const Hero = ({ isDarkMode }) => {
           </h2>
 
           <p className="text-white/60 text-sm sm:text-base max-w-lg mb-6 sm:mb-8">
-            Passionate about creating clean, efficient, and user-friendly
-            applications that solve real-world problems. Always looking for the
-            next challenge in the digital cosmos.
+            A passionate freelance developer who started this journey 2.6 years
+            ago, crafting clean, efficient, and user-friendly applications that
+            solve real-world problems. Always exploring the next challenge in the
+            digital cosmos.
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -156,6 +153,54 @@ const Hero = ({ isDarkMode }) => {
               Download Resume
             </a>
           </div>
+
+          {/* Open Source — DevVerse highlight */}
+          <a
+            href="https://github.com/Krishnarajan7/DevVerse"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="DevVerse — open source collection on GitHub"
+            className="group relative mt-6 sm:mt-8 flex items-start gap-3 sm:gap-4 w-full max-w-lg rounded-xl border border-space-accent/30 bg-gradient-to-r from-space-accent/10 via-space-nebula/5 to-transparent p-3 sm:p-4 transition-all duration-300 hover:border-space-accent/60 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-space-accent/10"
+          >
+            {/* Hover tooltip — explains the initiative */}
+            <span
+              role="tooltip"
+              className="pointer-events-none absolute bottom-full left-0 mb-3 w-full max-w-sm rounded-lg border border-space-accent/20 bg-space-darker/95 backdrop-blur-md p-3 text-xs leading-relaxed text-white/80 opacity-0 translate-y-1 shadow-xl shadow-black/40 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 z-20"
+            >
+              <span className="block font-semibold text-space-accent mb-1">
+                DevVerse — a community dev library
+              </span>
+              A growing, open collection of website templates and real projects, free for
+              everyone to learn from and reuse.{" "}
+              <span className="text-white">
+                Got a template or project? Fork it, add yours, and open a PR — every
+                contribution helps fellow devs build faster. 🚀
+              </span>
+              {/* Arrow */}
+              <span className="absolute -bottom-1 left-6 w-2.5 h-2.5 rotate-45 bg-space-darker/95 border-r border-b border-space-accent/20" />
+            </span>
+
+            <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-space-accent/15 flex items-center justify-center text-space-accent group-hover:scale-110 transition-transform duration-300">
+              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span className="text-white font-semibold text-sm sm:text-base">
+                  DevVerse
+                </span>
+                <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-green-500/15 text-green-400 border border-green-500/20 font-medium whitespace-nowrap">
+                  Open Source
+                </span>
+              </div>
+              <p className="text-white/60 text-xs sm:text-sm leading-snug mt-0.5">
+                An open collection of templates &amp; projects — any dev can contribute.
+              </p>
+            </div>
+            <div className="flex-shrink-0 self-center flex items-center gap-1.5 text-white/50 group-hover:text-space-accent transition-colors duration-300">
+              <Star className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </div>
+          </a>
 
           <div className="flex items-center mt-8 sm:mt-10 space-x-4">
             <a

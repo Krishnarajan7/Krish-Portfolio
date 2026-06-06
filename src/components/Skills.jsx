@@ -233,7 +233,7 @@ const Skills = ({ isDarkMode }) => {
       </div>
 
       {/* Add some extra styling for the star animations */}
-      <style jsx="true" global="true">{`
+      <style>{`
         @keyframes twinkle {
           0%,
           100% {

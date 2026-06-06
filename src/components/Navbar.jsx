@@ -11,6 +11,13 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' }
 ];
 
+const SOCIAL_LINKS = [
+  { label: 'GitHub', href: 'https://github.com/Krishnarajan7', icon: Github },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/krishnarajan007', icon: Linkedin },
+  { label: 'YouTube', href: 'https://www.youtube.com/@KrishCodes-IO', icon: Youtube },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/KrishCodes7/', icon: Code }
+];
+
 const Navbar = ({ isDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -150,58 +157,41 @@ const Navbar = ({ isDarkMode }) => {
           <div className="flex items-center space-x-4">
             {/* Desktop Social Icons */}
             <div className="hidden md:flex items-center space-x-3">
-              <a
-                href="https://github.com/Krishnarajan7" // Replace with actual link
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-                className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
-                    : 'bg-white/50 border border-gray-200/50 text-gray-600 hover:text-blue-600'
-                }`}
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/krishnarajan007" 
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
-                    : 'bg-white/50 border border-gray-200/50 text-gray-600 hover:text-blue-600'
-                }`}
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.youtube.com/@KrishCodes-IO" 
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube channel"
-                className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
-                    : 'bg-white/50 border border-gray-200/50 text-gray-600 hover:text-blue-600'
-                }`}
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a
-                href="https://leetcode.com/u/KrishCodes7/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LeetCode profile"
-                className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
-                  isDarkMode 
-                    ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent' 
-                    : 'bg-white/50 border border-gray-200/50 text-gray-600 hover:text-blue-600'
-                }`}
-              >
-                <Code className="w-4 h-4" />
-              </a>
+              {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className={`group relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
+                    isDarkMode
+                      ? 'bg-space-dark/50 border border-white/10 text-white/80 hover:text-space-accent'
+                      : 'bg-white/50 border border-gray-200/50 text-gray-600 hover:text-blue-600'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {/* Tooltip */}
+                  <span
+                    role="tooltip"
+                    className={`pointer-events-none absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-medium opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 ${
+                      isDarkMode
+                        ? 'bg-space-darker/95 text-white border border-white/10 shadow-lg shadow-black/40'
+                        : 'bg-white text-gray-700 border border-gray-200 shadow-lg'
+                    }`}
+                  >
+                    {label}
+                    {/* Arrow */}
+                    <span
+                      className={`absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 ${
+                        isDarkMode
+                          ? 'bg-space-darker/95 border-l border-t border-white/10'
+                          : 'bg-white border-l border-t border-gray-200'
+                      }`}
+                    />
+                  </span>
+                </a>
+              ))}
             </div>
 
             {/* Mobile Menu Button */}

@@ -95,12 +95,20 @@ const About = ({ isDarkMode }) => {
       color: "from-green-500 to-emerald-500",
     },
     {
-      year: "October – 2025",
-      title: "Full-Stack Developer Intern",
+      year: "October 2025 – May 2026",
+      title: "Full-Stack Developer Intern at Krafzen",
       description:
-        "Joined Krafzen as a Full-Stack Developer Intern, contributing to the development of a scalable SaaS platform ",
+        "Completed a 6-month internship at Krafzen — worked as a Backend Developer on one project and as a Frontend Developer on another, contributing to scalable SaaS products.",
       icon: Building,
       color: "from-yellow-400 to-yellow-600",
+    },
+    {
+      year: "April 2026",
+      title: "First Company — Terabyte India",
+      description:
+        "Joined my first company, Terabyte India (Thiruvarur), on April 14 as a Mobile App Developer. After two months, I resigned, having focused on mobile app development.",
+      icon: Building,
+      color: "from-indigo-500 to-blue-500",
     }
   ];
 
