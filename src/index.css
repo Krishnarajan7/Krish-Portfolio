@@ -35,9 +35,11 @@
     --radius: 0.5rem;
   }
   
-  /* Add overflow-x-hidden to html and body to prevent horizontal scrolling */
+  /* Prevent horizontal scroll. Use `clip` (not `hidden`) so we don't create a
+     scroll container — `hidden` forces overflow-y to auto and breaks
+     position: sticky for descendants (e.g. the Journey article TOC). */
   html, body {
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     position: relative;
   }
@@ -78,6 +80,43 @@ input[type="button"] {
   input[type="button"] {
     cursor: auto;
   }
+}
+
+/* When the dynamic JS cursor is active, hide the static image cursor.
+   Text fields keep the native caret so typing stays usable. */
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active [role="button"],
+body.custom-cursor-active .cursor-pointer,
+body.custom-cursor-active label[for],
+body.custom-cursor-active input[type="submit"],
+body.custom-cursor-active input[type="button"] {
+  cursor: none;
+}
+body.custom-cursor-active input:not([type="submit"]):not([type="button"]),
+body.custom-cursor-active textarea,
+body.custom-cursor-active [contenteditable="true"] {
+  cursor: text;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform;
+  transition: color 0.18s ease, opacity 0.2s ease;
+}
+
+/* Journey page — give the Space Grotesk display headings real weight */
+.journey-page :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor { display: none; }
 }
 
 /* Theme styles */
@@ -438,34 +477,58 @@ body.light-mode .animate-pulse-glow {
   }
 }
 
-/* Custom scrollbar */
+/* Hide the default scrollbar (the anchor is the scroll indicator) — scroll still works */
+html {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / old Edge */
+}
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0;
+  height: 0;
+  display: none;                /* Chrome / Safari / Edge */
 }
 
-::-webkit-scrollbar-track {
-  background: #0F1729;
+/* ---------------------------------------------------------------
+   Light-mode shadows
+   The default Tailwind shadows use pure black and the custom glow
+   shadows (shadow-black/40, shadow-space-accent/*) are tuned for the
+   dark theme — both look muddy on the light background. Replace them
+   with soft, brand-tinted shadows.
+--------------------------------------------------------------- */
+body.light-mode [class~="shadow-sm"] {
+  box-shadow: 0 1px 2px rgba(30, 58, 138, 0.06) !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #7E69AB;
-  border-radius: 5px;
+body.light-mode [class~="shadow-md"] {
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08) !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #9b87f5;
+body.light-mode [class~="shadow-lg"] {
+  box-shadow: 0 6px 18px rgba(30, 58, 138, 0.10) !important;
 }
 
-body.light-mode ::-webkit-scrollbar-track {
-  background: #f8fafc;
+body.light-mode [class~="shadow-xl"] {
+  box-shadow: 0 10px 28px rgba(30, 58, 138, 0.12) !important;
 }
 
-body.light-mode ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+body.light-mode [class~="shadow-2xl"] {
+  box-shadow: 0 16px 40px rgba(30, 58, 138, 0.14) !important;
 }
 
-body.light-mode ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+/* Dark-theme glow shadows → soft brand glow in light mode */
+body.light-mode [class~="shadow-black/40"],
+body.light-mode [class~="shadow-space-accent/10"],
+body.light-mode [class~="shadow-space-accent/20"],
+body.light-mode [class~="shadow-space-accent/30"] {
+  box-shadow: 0 8px 22px rgba(59, 130, 246, 0.18) !important;
+}
+
+/* Dark surfaces with an opacity modifier (e.g. bg-space-darker/95 on
+   tooltips) aren't caught by the base bg-space-darker override — make
+   them light so text stays readable. */
+body.light-mode [class~="bg-space-darker/95"] {
+  background: rgba(255, 255, 255, 0.97) !important;
 }
 
 /* Enhanced mobile responsiveness for light mode */

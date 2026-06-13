@@ -327,15 +327,6 @@ const Hero = ({ isDarkMode }) => {
         </div>
       </div>
 
-      {/* Scroll indicator - hide on small screens when less space */}
-      {!isMobile && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-          <div className="text-white/50 text-sm mb-2">Scroll to explore</div>
-          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-1.5 bg-white/60 rounded-full animate-bounce"></div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

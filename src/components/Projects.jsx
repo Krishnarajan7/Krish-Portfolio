@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import {
   Github,
   ArrowUpRight,
@@ -7,7 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +16,22 @@ import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const PROJECTS = [
+  {
+    title: "P2P Career Guidance",
+    description:
+      "A campus recruitment platform built with PHP & Laravel that lets students take online aptitude/placement tests for various campus drives. Submissions are securely stored in the database and reviewed by admins, who can export results and search across thousands of colleges. Used by 300+ students across multiple campus drives for different companies.",
+    image: "/assets/images/p2p.png",
+    tech: [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Blade",
+      "JavaScript",
+      "Bootstrap",
+    ],
+    demo: "https://p2pcareerguidance.com/",
+    featured: true,
+  },
   {
   title: "Pranitha Portfolio",
   description:
@@ -200,11 +217,87 @@ const PROJECTS = [
   },
 ];
 
+const FLYOUT_WIDTH = 360;
+
 const ProjectCard = ({ project }) => {
   const isMobile = useIsMobile();
+  const cardRef = useRef(null);
+  const openTimer = useRef(null);
+  const closeTimer = useRef(null);
+  const [flyout, setFlyout] = useState(null);
+
+  // Delay (ms) the cursor must rest on a card before the panel appears
+  const HOVER_DELAY = 1000;
+
+  const cancelOpen = () => {
+    if (openTimer.current) {
+      clearTimeout(openTimer.current);
+      openTimer.current = null;
+    }
+  };
+
+  const cancelHide = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const scheduleHide = () => {
+    cancelOpen();
+    cancelHide();
+    closeTimer.current = setTimeout(() => setFlyout(null), 160);
+  };
+
+  useEffect(
+    () => () => {
+      cancelOpen();
+      cancelHide();
+    },
+    []
+  );
+
+  const computeAndShow = () => {
+    if (isMobile || !cardRef.current) return;
+    // Skip on touch / no-hover devices
+    if (window.matchMedia && window.matchMedia("(hover: none)").matches) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const gap = 16;
+    const margin = 16;
+    const estHeight = 340;
+
+    // Flip to the left if there isn't room on the right
+    const showRight = rect.right + gap + FLYOUT_WIDTH <= window.innerWidth - margin;
+    const left = showRight ? rect.right + gap : rect.left - gap - FLYOUT_WIDTH;
+
+    // Keep the panel inside the viewport vertically
+    let top = rect.top;
+    if (top + estHeight > window.innerHeight - margin) {
+      top = Math.max(margin, window.innerHeight - estHeight - margin);
+    }
+
+    setFlyout({ left, top, side: showRight ? "right" : "left" });
+  };
+
+  const handleCardEnter = () => {
+    cancelHide();
+    if (flyout) return; // already open — keep it
+    cancelOpen();
+    openTimer.current = setTimeout(computeAndShow, HOVER_DELAY);
+  };
+
+  const handleCardLeave = () => {
+    cancelOpen();
+    scheduleHide();
+  };
 
   return (
-    <div className="cosmic-card group relative h-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+    <div
+      ref={cardRef}
+      onMouseEnter={handleCardEnter}
+      onMouseLeave={handleCardLeave}
+      className="cosmic-card group relative h-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
       {/* Cosmic background overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-space-accent/5 to-space-nebula/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -245,24 +338,28 @@ const ProjectCard = ({ project }) => {
           )}
 
           <div className="absolute top-3 right-3 flex gap-2">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/btn p-2.5 rounded-full backdrop-blur-md bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white border border-gray-300/80 dark:border-space-accent/30 hover:bg-space-accent hover:text-white hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
-              aria-label={`View ${project.title} source code on GitHub`}
-            >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/btn p-2.5 rounded-full backdrop-blur-md bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white border border-gray-300/80 dark:border-space-accent/30 hover:bg-space-accent hover:text-white hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
-              aria-label={`View ${project.title} live demo`}
-            >
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn p-2.5 rounded-full backdrop-blur-md bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white border border-gray-300/80 dark:border-space-accent/30 hover:bg-space-accent hover:text-white hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
+                aria-label={`View ${project.title} source code on GitHub`}
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn p-2.5 rounded-full backdrop-blur-md bg-white/90 dark:bg-space-dark/90 text-gray-800 dark:text-white border border-gray-300/80 dark:border-space-accent/30 hover:bg-space-accent hover:text-white hover:border-space-accent hover:scale-110 transition-all duration-300 shadow-lg"
+                aria-label={`View ${project.title} live demo`}
+              >
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            )}
           </div>
         </div>
 
@@ -298,6 +395,107 @@ const ProjectCard = ({ project }) => {
       <div className="absolute top-4 left-4 w-1 h-1 bg-space-accent rounded-full opacity-40 animate-twinkle"></div>
       <div className="absolute bottom-8 right-8 w-1.5 h-1.5 bg-space-nebula rounded-full opacity-30 animate-twinkle-slow"></div>
       <div className="absolute top-1/2 left-8 w-0.5 h-0.5 bg-gray-400 dark:bg-white rounded-full opacity-50 animate-twinkle-fast"></div>
+
+      {/* Hover detail flyout (desktop) */}
+      {createPortal(
+        <AnimatePresence>
+          {flyout && (
+            <motion.div
+              key="project-flyout"
+              initial={{
+                opacity: 0,
+                x: flyout.side === "right" ? -10 : 10,
+                scale: 0.97,
+              }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{
+                opacity: 0,
+                x: flyout.side === "right" ? -10 : 10,
+                scale: 0.97,
+              }}
+              transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+              onMouseEnter={cancelHide}
+              onMouseLeave={scheduleHide}
+              className="fixed z-[100] hidden md:block"
+              style={{
+                left: flyout.left,
+                top: flyout.top,
+                width: FLYOUT_WIDTH,
+              }}
+            >
+            <div className="relative rounded-xl border border-space-accent/30 bg-space-darker/95 backdrop-blur-xl p-5 shadow-2xl shadow-space-accent/10">
+              {/* Pointer arrow toward the card */}
+              <span
+                className={`absolute top-8 w-3 h-3 rotate-45 bg-space-darker/95 border-space-accent/30 ${
+                  flyout.side === "right"
+                    ? "-left-1.5 border-l border-b"
+                    : "-right-1.5 border-r border-t"
+                }`}
+              />
+
+              <h4 className="text-lg font-bold text-white text-gradient">
+                {project.title}
+              </h4>
+
+              <div className="mt-1.5 flex items-center gap-2 text-xs text-space-accent">
+                <Code className="w-3.5 h-3.5" />
+                <span>{project.tech.length} technologies</span>
+                {project.demo && (
+                  <>
+                    <span className="text-white/30">•</span>
+                    <span className="flex items-center gap-1 text-green-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                      Live
+                    </span>
+                  </>
+                )}
+              </div>
+
+              <p className="mt-3 text-sm leading-relaxed text-white/80">
+                {project.description}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {project.tech.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-space-accent/10 text-space-accent border border-space-accent/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-4 flex items-center gap-3 text-xs">
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-space-accent text-white font-medium hover:bg-space-accent/90 transition-colors duration-200"
+                  >
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    Visit live site
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-space-accent/30 text-white/80 font-medium hover:border-space-accent/60 hover:text-white transition-colors duration-200"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    View source
+                  </a>
+                )}
+              </div>
+            </div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 };

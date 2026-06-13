@@ -11,6 +11,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
 import Navbar from '../components/Navbar';
+import ScrollAnchor from '../components/ScrollAnchor';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -132,6 +133,7 @@ const Index = () => {
       <BackgroundDetails isDarkMode={isDarkMode} />
       <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Navbar isDarkMode={isDarkMode} />
+      <ScrollAnchor />
       <Hero isDarkMode={isDarkMode} />
       <About isDarkMode={isDarkMode} />
       <Skills isDarkMode={isDarkMode} />
@@ -139,25 +141,7 @@ const Index = () => {
       <Contact isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
 
-      {/* Add some style to the scrollbar */}
       <style>{`
-        ::-webkit-scrollbar {
-          width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: ${isDarkMode ? '#0F1729' : '#F0F4F8'};
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: #7E69AB;
-          border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: #9b87f5;
-        }
-        
         @keyframes gradient-slide {
           0% { background-position: 0% 0%; }
           100% { background-position: 200% 0%; }

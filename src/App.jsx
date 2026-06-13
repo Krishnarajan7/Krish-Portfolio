@@ -3,9 +3,11 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./components/ui/toaster";
+import CustomCursor from "./components/CustomCursor";
 
 // Lazy-load pages to reduce initial bundle size (code-split)
 const Index = lazy(() => import("./pages/Index"));
+const Journey = lazy(() => import("./pages/Journey"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
@@ -19,6 +21,7 @@ const queryClient = new QueryClient({
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <CustomCursor />
     <BrowserRouter>
       <Suspense fallback={
         <div className="flex items-center justify-center min-h-screen text-white/50">
@@ -28,6 +31,7 @@ const App = () => (
         <Toaster />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/journey" element={<Journey />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

@@ -17,6 +17,7 @@ import {
 import { useIsMobile } from "../hooks/use-mobile";
 import SectionHeader from "./common/SectionHeader";
 import { Timeline } from "./ui/timeline";
+import SecretPortal from "./SecretPortal";
 
 const About = ({ isDarkMode }) => {
   const aboutRef = useRef(null);
@@ -152,17 +153,17 @@ const About = ({ isDarkMode }) => {
                 </div>
                 <div className="space-y-4 text-white/80 leading-relaxed">
                   <p>
-                    Hi there! I'm Krishnarajan, a passionate full-stack
-                    developer who loves turning creative ideas into digital
-                    reality. My journey in the tech universe began with
-                    curiosity and has evolved into a mission to build
-                    applications that make a real difference.
+                    Hi there! I'm Krishnarajan, a passionate freelancer and
+                    full-stack developer with 2.6 years of experience turning
+                    creative ideas into digital reality. My journey in the tech
+                    universe began with curiosity and has evolved into a mission
+                    to build applications that make a real difference.
                   </p>
                   <p>
-                    I believe in the power of clean code, innovative solutions,
-                    and continuous learning. When I'm not coding, you'll find me
-                    exploring new technologies, contributing to open source
-                    projects, or mentoring fellow developers.
+                    This page is my living journal — everything I've done, what
+                    I'm working on now, and what's next gets documented right
+                    here. Think of it as my life journey, written down as it
+                    unfolds. So feel free to scroll through and follow along.
                   </p>
                 </div>
               </div>
@@ -260,7 +261,7 @@ const About = ({ isDarkMode }) => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">
-                        Krishnarajan
+                        Krishnarajan V
                       </h3>
                       <p className="text-space-accent">Full-Stack Developer</p>
                       <p className="text-white/60 text-sm">
@@ -402,6 +403,11 @@ const About = ({ isDarkMode }) => {
             </p>
           </div>
           <Timeline data={timelineData} />
+
+          {/* Hidden entry point to the secret archive — a drifting asteroid */}
+          <div className="mt-16">
+            <SecretPortal />
+          </div>
         </div>
       </div>
     </section>
